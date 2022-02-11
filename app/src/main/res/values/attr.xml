@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="GradientView">
+        <attr name="GradientViewColorArrayId" format="reference"/>
+        <attr name="GradientViewIsUpToBottom" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="LongButtonWithTitleAndSubtitle">
+        <attr name="title" format="string" />
+        <attr name="sub_title" format="string" />
+        <attr name="icon" format="reference"/>
+        <attr name="title_color" format="color"/>
+        <attr name="sub_title_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="LongHorizontalButtonWithSubtitleFront">
+        <attr name="long_horizontal_title" format="string" />
+        <attr name="long_horizontal_sub_title" format="string" />
+        <attr name="long_horizontal_icon" format="reference"/>
+        <attr name="long_horizontal_title_color" format="color"/>
+        <attr name="long_horizontal_sub_title_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="SquareButtonWithTitle">
+        <attr name="square_title" format="string" />
+        <attr name="square_icon" format="reference"/>
+        <attr name="square_title_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="SquareButtonWithOnlyTitleCenter">
+        <attr name="square_with_titleOnly_title" format="string" />
+        <attr name="square_with_titleOnly_title_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="LevelsCircle">
+        <attr name="levels_circle_color_bg" format="color"/>
+        <attr name="levels_circle_color_border" format="color"/>
+        <attr name="levels_circle_color_text" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="StepperButton">
+        <attr name="stepper_button_title" format="string" />
+        <attr name="stepper_button_max_value" format="integer"/>
+        <attr name="stepper_button_current_percent" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="ColorPickerButton">
+        <attr name="color_picker_title" format="string"/>
+        <attr name="color_picker_sub_title" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="SwitchButton">
+        <attr name="switch_button_title" format="string" />
+        <attr name="switch_button_sub_title" format="string" />
+        <attr name="switch_button_title_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="ActionBar">
+        <attr name="action_bar_title" format="string" />
+        <attr name="action_bar_delete_button" format="boolean" />
+        <attr name="action_bar_done_button" format="boolean"/>
+        <attr name="action_bar_back_button" format="boolean"/>
+        <attr name="action_bar_notification_button" format="boolean"/>
+        <attr name="action_bar_login_button" format="boolean"/>
+        <attr name="action_bar_add_button" format="boolean"/>
+        <attr name="action_bar_is_main_font" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CustomSwitch">
+        <attr name="custom_switch_is_checked" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CTextFloatingActionButton">
+        <attr name="text" format="string" />
+        <attr name="text_color" format="color" />
+        <attr name="text_size" format="dimension" />
+        <attr name="font_id" format="reference" />
+    </declare-styleable>
+</resources>

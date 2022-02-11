@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="ir.amozkade.advancedAsisstiveTouche.helper.bindings.PriceBinding" />
+
+        <import type="ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.levels.models.Level" />
+
+        <variable
+            name="level"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.leitners.models.LeitnerLevels" />
+
+        <variable
+            name="listener"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.levels.LevelsAdapter.OnLevelListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="172dp"
+        android:clipToPadding="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cv"
+            style="@style/left_grid_item"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginStart="@dimen/paddingAllLayout2X"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="@dimen/paddingAllLayout2X"
+            android:clipToPadding="false"
+            android:elevation="5dp"
+            android:foreground="@drawable/ripple_circle"
+            android:onClick="@{(v)->listener.onLevelTaped(level)}"
+            android:padding="@dimen/paddingAllLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtName"
+                style="@style/heavy_font_family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingAllLayout"
+                android:gravity="center_horizontal"
+                android:text="@{Level.getLocalizedLevelName(context , level.level)}"
+                android:textAllCaps="true"
+                android:textColor="@color/blue"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Level 1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtQuestionCount"
+                style="@style/bold_font_family"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/paddingAllLayout"
+                android:layout_marginLeft="@dimen/paddingAllLayout"
+                android:gravity="start"
+                android:textColor="@color/white_darker_3X"
+                app:countOfSpannable="@{level.questionCountInLevel}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:placeholderOfSpannable="@{@string/questions}"
+                app:spannableColor="@{@color/blue}"
+                tools:text="Questions : 3" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtReviewableCount"
+                style="@style/bold_font_family"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/paddingAllLayout"
+                android:layout_marginRight="@dimen/paddingAllLayout"
+                android:gravity="start"
+                android:textColor="@color/white_darker_3X"
+                app:countOfSpannable="@{level.reviewableCount}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:placeholderOfSpannable="@{@string/reviewable}"
+                app:spannableColor="@{@color/blue}"
+                tools:text="Reviewable : 1" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomLine"
+            android:layout_width="4dp"
+            android:layout_height="36dp"
+            android:background="@color/blue_border"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv"
+            tools:visibility="visible" />
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LevelsCircle
+            android:id="@+id/topCircle"
+            style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:elevation="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/cv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cv"
+            app:levels_circle_color_text="1"
+            tools:ignore="UnusedAttribute"
+            tools:visibility="visible" />
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LevelsCircle
+            android:id="@+id/bottomCircle"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:elevation="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv"
+            app:levels_circle_color_text="2"
+            tools:ignore="UnusedAttribute" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

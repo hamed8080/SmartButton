@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/paddingAllLayout2X"
+        android:paddingLeft="@dimen/paddingAllLayout2X"
+        android:paddingTop="@dimen/paddingAllLayout2X"
+        android:paddingEnd="@dimen/paddingAllLayout2X"
+        android:paddingRight="@dimen/paddingAllLayout2X"
+        android:paddingBottom="@dimen/paddingAllLayout3X"
+        tools:ignore="UnusedAttribute">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/cv_background"
+            android:elevation="20dp"
+            android:foreground="@drawable/ripple_circle"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="match_parent"
+                app:layout_constraintGuide_percent=".5"
+                android:orientation="horizontal"
+                android:layout_height="1dp"/>
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:riv_corner_radius_top_left="20dp"
+                app:riv_corner_radius_top_right="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline"
+                tools:src="@drawable/img_delete" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTitle"
+                style="@style/heavy_font_family"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:shadowRadius="4"
+                android:textAllCaps="true"
+                android:textColor="@color/black_text_bold_color"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/paddingAllLayout2X"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img"
+                android:layout_marginStart="@dimen/paddingAllLayout2X"
+                android:layout_marginEnd="@dimen/paddingAllLayout2X"
+                tools:ignore="RtlSymmetry"
+                tools:text="test" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

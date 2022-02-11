@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.review.ReviewViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:action_bar_title="Level 1" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/actionBar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/detailView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddNewWordToLeitner"
+                        style="@style/icon_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:text="@string/f_plus"
+                        android:textColor="@color/primary_color"
+                        android:textSize="28sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/centerGuidelineInDetailView"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:alpha=".5"
+                        android:background="@color/white_darker_2X"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTotal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtTotal"
+                        style="@style/heavy_font_family"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/total(vm.model.numberOfReviewedItems , vm.model.totalItemsInLevel)}"
+                        android:textColor="@color/white_darker_3X"
+                        android:textSize="24sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Total 1 / 12 " />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnOpenReverse"
+                        style="@style/icon_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        android:text="@string/f_repeat"
+                        android:textColor="@color/primary_color"
+                        android:textSize="28sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtPassedCount"
+                        style="@style/bold_font_family"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/paddingAllLayout"
+                        android:layout_marginLeft="@dimen/paddingAllLayout"
+                        android:layout_marginTop="@dimen/paddingAllLayout"
+                        android:gravity="center"
+                        android:textColor="@color/white_darker_3X"
+                        android:textSize="16sp"
+                        app:countOfSpannable="@{vm.model.passedItemsInLevel}"
+                        app:layout_constraintEnd_toStartOf="@+id/centerGuidelineInDetailView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTotal"
+                        app:placeholderOfSpannable="@{@string/correct}"
+                        app:spannableColor="@{@color/blue}"
+                        tools:text="Passed : 1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtFailedCount"
+                        style="@style/bold_font_family"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/paddingAllLayout"
+                        android:layout_marginEnd="@dimen/paddingAllLayout"
+                        android:layout_marginRight="@dimen/paddingAllLayout"
+                        android:gravity="center"
+                        android:textColor="@color/white_darker_3X"
+                        android:textSize="16sp"
+                        app:countOfSpannable="@{vm.model.failedItemInLevel}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/centerGuidelineInDetailView"
+                        app:layout_constraintTop_toBottomOf="@+id/txtTotal"
+                        app:placeholderOfSpannable="@{@string/failed}"
+                        app:spannableColor="@{@color/red}"
+                        tools:text="Failed : 0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/wordView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/paddingAllLayout"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/cv_background"
+                    android:elevation="10dp"
+                    android:foreground="@drawable/ripple_circle"
+                    android:minHeight="196dp"
+                    app:layout_constraintTop_toBottomOf="@+id/detailView"
+                    tools:ignore="UnusedAttribute">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSpeakWord"
+                        style="@style/icon_button"
+                        android:layout_margin="@dimen/paddingAllLayout"
+                        android:gravity="center"
+                        android:text="@string/f_speak"
+                        android:textColor="@color/blue"
+                        android:textSize="28sp"
+                        android:translationY="-5dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtWord"
+                        style="@style/heavy_font_family"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/paddingAllLayout"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        android:text="@{vm.model.question}"
+                        android:textAllCaps="true"
+                        android:textColor="@color/blue"
+                        app:layout_constraintEnd_toStartOf="@+id/btn_delete_from_leitner"
+                        app:layout_constraintStart_toEndOf="@+id/btnSpeakWord"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="hello" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_delete_from_leitner"
+                        style="@style/icon_button"
+                        android:layout_margin="@dimen/paddingAllLayout"
+                        android:text="@string/f_delete"
+                        android:textColor="@color/red"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPronunciation"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_edit_question"
+                            style="@style/icon_button"
+                            android:layout_margin="@dimen/paddingAllLayout"
+                            android:text="@string/f_edit"
+                            android:textColor="@color/primary_color"
+                            android:textSize="18sp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_fav"
+                            style="@style/icon_button"
+                            app:iconGravity="textStart"
+                            app:iconPadding="0dp"
+                            app:icon="@drawable/ic_baseline_star_outline_24"
+                            app:iconTint="@color/primary_color"
+                            app:iconSize="32dp"/>
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtPartOfSpeech"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{vm.model.partOfSpeech}"
+                        android:textColor="@color/white_darker_2X"
+                        android:textSize="12sp"
+                        android:visibility="@{vm.model.partOfSpeech == null ? View.GONE : View.VISIBLE , default=`gone`}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtWord"
+                        tools:text="noun - adjective"
+                        tools:visibility="visible" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtPronunciation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@{@string/pronunciation(vm.model.ipa)}"
+                        android:textColor="@color/white_darker_2X"
+                        android:textSize="12sp"
+                        android:visibility="@{vm.model.ipa == null ? View.GONE : View.VISIBLE , default=`gone`}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPartOfSpeech"
+                        tools:text="Pronunciation : həˈlō"
+                        tools:visibility="visible" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/translationView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/paddingAllLayout"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/cv_background"
+                    android:elevation="10dp"
+                    android:foreground="@drawable/ripple_circle"
+                    android:minHeight="96dp"
+                    app:layout_constraintTop_toBottomOf="@+id/wordView"
+                    tools:ignore="UnusedAttribute"
+                    tools:visibility="visible">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/btnTapToShow"
+                        style="@style/heavy_font_family"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/paddingAllLayout"
+                        android:layout_marginBottom="@dimen/paddingAllLayout"
+                        android:text="@string/tap_to_show_answer"
+                        android:textAllCaps="false"
+                        android:textColor="@color/red"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtAnswer"
+                        style="@style/heavy_font_family"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/paddingAllLayout"
+                        android:layout_marginBottom="@dimen/paddingAllLayout"
+                        android:text="@{vm.model.answer}"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white_darker_3X"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnTapToShow"
+                        tools:text="سلام"
+                        tools:visibility="visible" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtMeansTitle"
+                        style="@style/heavy_font_family"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/paddingAllLayout"
+                        android:layout_marginLeft="@dimen/paddingAllLayout"
+                        android:layout_marginTop="@dimen/paddingAllLayout"
+                        android:text="@string/means"
+                        android:textAllCaps="true"
+                        android:textColor="@color/blue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcvMeans"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/paddingAllLayout"
+                        android:overScrollMode="never"
+                        android:visibility="gone"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtMeansTitle"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/row_translate"
+                        tools:visibility="visible" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/definitionsView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/paddingAllLayout"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/cv_background"
+                    android:elevation="10dp"
+                    android:foreground="@drawable/ripple_circle"
+                    android:minHeight="96dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/translationView"
+                    tools:ignore="UnusedAttribute"
+                    tools:visibility="visible">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtDefinitionsTitle"
+                        style="@style/heavy_font_family"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/paddingAllLayout"
+                        android:layout_marginLeft="@dimen/paddingAllLayout"
+                        android:layout_marginTop="@dimen/paddingAllLayout"
+                        android:text="@string/definitions"
+                        android:textAllCaps="true"
+                        android:textColor="@color/blue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.github.ybq.android.spinkit.SpinKitView
+                        android:id="@+id/loadingDefinitions"
+                        style="@style/SpinKitView.Large.Wave"
+                        android:layout_width="24dp"
+                        android:layout_height="20dp"
+                        android:layout_margin="@dimen/paddingAllLayout"
+                        android:visibility="@{vm.model.definitionsLoading ? View.VISIBLE : View.GONE  , default =`gone`}"
+                        app:SpinKit_Color="@color/blue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcvDefinitions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/paddingAllLayout"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtDefinitionsTitle"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/row_definition" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/synonymsView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/paddingAllLayout"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:layout_marginEnd="@dimen/paddingAllLayout"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/cv_background"
+                    android:elevation="10dp"
+                    android:foreground="@drawable/ripple_circle"
+                    android:minHeight="96dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/definitionsView"
+                    tools:ignore="UnusedAttribute"
+                    tools:visibility="visible">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtSynonymsTitle"
+                        style="@style/heavy_font_family"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/paddingAllLayout"
+                        android:layout_marginLeft="@dimen/paddingAllLayout"
+                        android:layout_marginTop="@dimen/paddingAllLayout"
+                        android:text="@string/synonyms"
+                        android:textAllCaps="true"
+                        android:textColor="@color/blue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.github.ybq.android.spinkit.SpinKitView
+                        android:id="@+id/loadingSynonyms"
+                        style="@style/SpinKitView.Large.Wave"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="@dimen/paddingAllLayout"
+                        android:visibility="@{vm.model.synonymsLoading ? View.VISIBLE : View.GONE  , default =`gone`}"
+                        app:SpinKit_Color="@color/blue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcvSynonyms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/paddingAllLayout"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSynonymsTitle"
+                        tools:itemCount="1"
+                        tools:listitem="@layout/row_synonym" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/synonymsView"
+                    tools:ignore="UselessLeaf" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/layoutAction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuess"
+                style="@style/primary_button"
+                android:layout_width="0dp"
+                android:layout_margin="@dimen/paddingAllLayout"
+                android:layout_weight="1"
+                android:elevation="4dp"
+                android:text="@string/guess"
+                android:textAllCaps="true"
+                android:typeface="monospace"
+                tools:targetApi="lollipop" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFail"
+                style="@style/primary_button"
+                android:layout_width="0dp"
+                android:layout_margin="@dimen/paddingAllLayout"
+                android:layout_weight="1"
+                android:backgroundTint="@color/red"
+                android:elevation="4dp"
+                android:text="@string/fail"
+                android:typeface="monospace"
+                app:strokeColor="@color/red"
+                tools:targetApi="lollipop" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

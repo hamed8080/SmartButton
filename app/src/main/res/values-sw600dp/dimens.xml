@@ -1,0 +1,10 @@
+<resources>
+    <!-- nexus 7 1200*1920- -->
+    <dimen name="paddingAllLayout">25dip</dimen>
+    <dimen name="paddingAllLayout2X">50dip</dimen>
+    <dimen name="paddingAllLayout3X">75dip</dimen>
+    <dimen name="paddingLayout">5dip</dimen>
+    <dimen name="simpleTextViewSizeSmall">20sp</dimen>
+    <dimen name="simpleTextViewSize">18sp</dimen>
+    <dimen name="HeadingTextViewSize">18sp</dimen>
+</resources>

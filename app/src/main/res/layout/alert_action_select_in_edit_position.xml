@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTitle"
+            style="@style/heavy_font_family"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/paddingAllLayout"
+            android:text="@string/select_action"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditShortcuts"
+            style="@style/text_button"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/pick_shortcut"
+            android:textAllCaps="false"
+            android:textColor="@color/black_text_bold_color"
+            app:backgroundTint="@color/transparent"
+            app:icon="@drawable/ic_shortcut"
+            app:iconPadding="16dp"
+            app:iconSize="24dp"
+            app:iconTint="@color/black_text_bold_color"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout style="@style/dividerInMain" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddApp"
+            style="@style/text_button"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/pick_app"
+            android:textAllCaps="false"
+            android:textColor="@color/black_text_bold_color"
+            app:backgroundTint="@color/transparent"
+            app:icon="@drawable/ic_edit_position"
+            app:iconPadding="16dp"
+            app:iconSize="24dp"
+            app:iconTint="@color/black_text_bold_color"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout style="@style/dividerInMain" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddContact"
+            style="@style/text_button"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/pick_contact"
+            android:textAllCaps="false"
+            android:textColor="@color/black_text_bold_color"
+            app:backgroundTint="@color/transparent"
+            app:icon="@drawable/ic_contact"
+            app:iconPadding="16dp"
+            app:iconSize="24dp"
+            app:iconTint="@color/black_text_bold_color"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout style="@style/dividerInMain" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNoAction"
+            style="@style/text_button"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/disable"
+            android:textAllCaps="false"
+            android:textColor="@color/black_text_bold_color"
+            app:backgroundTint="@color/transparent"
+            app:icon="@drawable/ic_disable"
+            app:iconPadding="16dp"
+            app:iconSize="24dp"
+            app:iconTint="@color/black_text_bold_color"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout style="@style/dividerInMain" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDelete"
+            style="@style/text_button"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical|start"
+            android:text="@string/delete"
+            android:textAllCaps="false"
+            android:textColor="@color/black_text_bold_color"
+            app:backgroundTint="@color/transparent"
+            app:icon="@drawable/ic_remove"
+            app:iconPadding="16dp"
+            app:iconSize="24dp"
+            app:iconTint="@color/black_text_bold_color"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+</layout>

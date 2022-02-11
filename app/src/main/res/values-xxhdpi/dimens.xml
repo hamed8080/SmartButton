@@ -1,0 +1,10 @@
+<resources>
+    <!--1920*1080 mobile nexus 5 ,...-->
+    <dimen name="paddingAllLayout">15dip</dimen>
+    <dimen name="paddingAllLayout2X">30dip</dimen>
+    <dimen name="paddingAllLayout3X">45dip</dimen>
+    <dimen name="paddingLayout">2dip</dimen>
+    <dimen name="simpleTextViewSizeSmall">12sp</dimen>
+    <dimen name="simpleTextViewSize">13sp</dimen>
+    <dimen name="HeadingTextViewSize">14sp</dimen>
+</resources>

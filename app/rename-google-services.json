@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "123",
+    "firebase_url": "https://smart-button-b1eb6.firebaseio.com",
+    "project_id": "smart-button-b1eb6",
+    "storage_bucket": "smart-button-b1eb6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "your_mobilesdk_app_id",
+        "android_client_info": {
+          "package_name": "ir.amozkade.advancedAsisstiveTouche"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "your_client_id",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.amozkade.advancedAsisstiveTouche",
+            "certificate_hash": "your_certificate_hash"
+          }
+        },
+        {
+          "client_id": "your_client_id",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "your_current_key"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "your_client_id",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "your_mobilesdk_app_id",
+        "android_client_info": {
+          "package_name": "ir.amozkade.advancedAsisstiveTouche.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "your_client_id",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.amozkade.advancedAsisstiveTouche.debug",
+            "certificate_hash": "your_certificate_hash"
+          }
+        },
+        {
+          "client_id": "your_client_id",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.amozkade.advancedAsisstiveTouche.debug",
+            "certificate_hash": "your_certificate_hash"
+          }
+        },
+        {
+          "client_id": "your_client_id",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "your_current_key"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "your_client_id",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

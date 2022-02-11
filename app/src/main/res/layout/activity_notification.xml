@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.notification.NotificationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action_bar_title="@string/notification"
+            app:action_bar_delete_button="true"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgEmptyNotification"
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            android:visibility="@{vm.model.listEmpty ? View.VISIBLE : View.GONE ,default=`gone`}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_empty_notification"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/heavy_font_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/notification_empty"
+            android:textSize="12sp"
+            android:visibility="@{vm.model.listEmpty ? View.VISIBLE : View.GONE ,default=`gone`}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgEmptyNotification"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:visibility="@{vm.model.listEmpty ? View.GONE : View.VISIBLE ,default=`visible`}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/actionBar"
+            app:spanCount="1"
+            tools:listitem="@layout/row_notification" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

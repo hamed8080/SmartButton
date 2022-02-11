@@ -1,0 +1,10 @@
+<resources>
+    <!-- pixel c  -->
+    <dimen name="paddingAllLayout">15dip</dimen>
+    <dimen name="paddingAllLayout2X">30dip</dimen>
+    <dimen name="paddingAllLayout3X">45dip</dimen>
+    <dimen name="paddingLayout">20dip</dimen>
+    <dimen name="simpleTextViewSizeSmall">20sp</dimen>
+    <dimen name="simpleTextViewSize">22sp</dimen>
+    <dimen name="HeadingTextViewSize">26sp</dimen>
+</resources>

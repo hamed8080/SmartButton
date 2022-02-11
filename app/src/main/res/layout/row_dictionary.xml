@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.manageDictionaries.Dictionary" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtName"
+            style="@style/bold_font_family"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginLeft="@dimen/paddingAllLayout"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            android:text="@{model.name}"
+            android:textColor="@color/white_darker_3X"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hello" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtFileSize"
+            style="@style/medium_font_family"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginLeft="@dimen/paddingAllLayout"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            android:gravity="center"
+            android:text="@{model.fileSizeString}"
+            android:textColor="@color/white_darker_3X"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDelete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnDelete"
+            tools:text="size: 48 kb" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDelete"
+            style="@style/icon_button"
+            android:layout_margin="@dimen/paddingAllLayout"
+            android:text="@string/f_delete"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAddToLeitner"
+            style="@style/icon_button"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:layout_marginBottom="@dimen/paddingAllLayout"
+            android:text="@string/f_stack"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnDelete"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            tools:ignore="UnusedAttribute" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

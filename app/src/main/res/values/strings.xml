@@ -1,0 +1,332 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Smart Button</string>
+    <string name="writeExternalPermission">For get updates must be allow permission to access storage</string>
+    <string name="cancel">Cancel</string>
+    <string name="FirstLoginToApp">First Login to application</string>
+    <string name="update_app">Update</string>
+    <string name="search">Search</string>
+    <string name="categories">Categories</string>
+
+    <string name="failed_connect">Failed to connect server please try again later.</string>
+    <string name="failed_connect_title">Failed to connect</string>
+    <string name="timeout_title">Time to connect</string>
+    <string name="timeout">Time to connect server reached please try again.</string>
+
+    <string name="language">Language</string>
+    <string name="unauthorized_subtitle">login session expired. please login again.</string>
+    <string name="unauthorized_title">Session Expired</string>
+
+    <string name="update">Update App</string>
+    <string name="filter_title">Filter</string>
+    <string name="logger">Logger</string>
+    <string name="delete_all">Delete All</string>
+
+
+    <!--  Dictionary  -->
+    <string name="add_new_leitner">Add new Leitner</string>
+    <string name="enter_leitner_name">Enter Leitner name</string>
+    <string name="leitner_exist">Leitner exist!</string>
+    <string name="enter_different_name">enter different name</string>
+    <string name="leitner_name_cant_null">Leitner name can\'t be empty</string>
+    <string name="delete_leitner">Delete Leitner</string>
+    <string name="delete">Delete</string>
+    <string name="delete_leitner_submit">Are you sure to delete ?</string>
+    <string name="delete_leitner_subtitle">if you remove Leitner all of the words inside Leitner will be lost</string>
+    <string name="level_name">"Level %s"</string>
+    <string name="enter_question">Enter question</string>
+    <string name="enter_answer">Enter answer</string>
+    <string name="save">save</string>
+    <string name="answer_cant_null">Answer can\'t be null</string>
+    <string name="question_cant_null">Question can\'t be null</string>
+    <string name="not_found_any_question_title">No Item in Levels</string>
+    <string name="not_found_any_question_subtitle">Not found any question at this level. work harder to level up</string>
+    <string name="close">Close</string>
+    <string name="review_finished_title">Review of questions finished</string>
+    <string name="review_finished_subtitle">Review of all questions finished . you can look for another level.</string>
+    <string name="day">Day</string>
+    <string name="delete_question_title">Delete Question ?</string>
+    <string name="delete_question_subtitle">Are you sure to delete this Question?</string>
+
+    <string name="permission_denied_title">Permission Denied</string>
+    <string name="permission_overlay_denied_subtitle">Please enable overlay permission</string>
+    <string name="permission_admin_subtitle" tools:ignore="TypographyEllipsis">Permission admin device required for lock screen, reboot, ...</string>
+    <string name="enable_button">Tap To Enable Button</string>
+    <string name="disable_button">Tap To Disable Button</string>
+    <string name="remove_app">Delete Smart Button App</string>
+    <string name="set_brightness">Set Brightness</string>
+    <string name="tap_me_to_enable">Tap on me to enable</string>
+    <string name="stay_until_you_enable_me">I stay here to enable me with a tap</string>
+    <string name="request_permission_accessibility">Please set Accessibility on like this in next page</string>
+    <string name="edit_button_positions">Edit Button Positions</string>
+    <string name="pick_shortcut">Pick shortcut</string>
+    <string name="pick_app">Pick app</string>
+    <string name="pick_contact">Pick contact</string>
+    <string name="disable">Disable</string>
+    <string name="select_action">Select Action</string>
+    <string name="preference">Preference</string>
+    <string name="button_preference">Button Preference</string>
+    <string name="alpha_after_three_second">When this option is enabled button will be fade after 3 seconds.</string>
+    <string name="automatic_moved_to_edge">When this option is enabled button will be moved to the edge of screen automatically.</string>
+    <string name="show_button_speed">When this option is enabled your internet speed will be shown on Button.</string>
+    <string name="button_size">Button Size</string>
+    <string name="speed_size">Speed Size</string>
+    <string name="button_color">Button Color</string>
+    <string name="panel_preference">Panel Preference</string>
+    <string name="panel_color">Panel Color</string>
+    <string name="panel_width_percent">Panel width</string>
+    <string name="panel_button_sizes">Icon Sizes</string>
+    <string name="panel_button_text_size">Icon Text Sizes</string>
+    <string name="delete_all_actions_title">Delete All Actions?</string>
+    <string name="delete_actions_subtitle">Are you sure to delete all action in panel?</string>
+    <string name="camera_permission_title">Camera Permission</string>
+    <string name="camera_permission_subtitle" tools:ignore="TypographyEllipsis">Camera permission is required to enable featured like flash light , ...</string>
+    <string name="delete_app_subtitle">Are you sure to delete the app?</string>
+    <string name="theme_store">Theme Store</string>
+    <string name="action_list_is_empty_please_add_new_item">Action list is empty please add new item</string>
+    <string name="apply">Apply</string>
+    <string name="offline_buttons">Buttons</string>
+    <string name="offline_backgrounds">Backgrounds</string>
+    <string name="offline_icon_fonts">Icon Fonts</string>
+    <string name="default_theme">Default Theme</string>
+    <string name="default_theme_subtitle">Are you sure to reset to default theme?</string>
+    <string name="update_to_this_version_is_mandatory">Update to new version is mandatory</string>
+    <string name="call_permission_subtitle">Call Permission required to phone call</string>
+    <string name="double_tap_action">Double Tap Action</string>
+    <string name="single_tap_action">Single Tap Action</string>
+    <string name="hold_action">Hold Action</string>
+    <string name="left_menu_title">When this option is on you can see one row in panel and panel stick on the start side of screen depend language you are setting in phone</string>
+    <string name="tap_to_request_admin_title">Tap to request device admin permission</string>
+
+    <string name="login_to_market">Seems you are not logged in to %s</string>
+    <string name="panel_buttons_color">Panel Buttons Color</string>
+    <string name="not_compatible">Not compatible!</string>
+    <string name="power_menu_compatible_with_android_five">Power menu need android version 5 and above</string>
+    <string name="tap_to_request_enable_disturb_mode_title">Disturb Needed!</string>
+    <string name="tap_to_request_enable_disturb_mode_subtitle">For Mute device, App need to Disturb mode to be activated</string>
+    <string name="call_permission_title">Tap To Enable Call Permission</string>
+
+    <!--    Buttons    -->
+    <string name="open_window">Open Window</string>
+    <string name="hide">Hide</string>
+    <string name="volume_down">Volume Down</string>
+    <string name="volume_up">Volume Up</string>
+    <string name="screenshot">Screenshot</string>
+    <string name="mute">Mute</string>
+    <string name="wifi">wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="multitasking">Multitasking</string>
+    <string name="home">Home</string>
+    <string name="brightness">Brightness</string>
+    <string name="torch">Torch</string>
+    <string name="lock_rotate">Lock Rotate</string>
+    <string name="back">Back</string>
+    <string name="lock">Lock</string>
+    <string name="volume">Volume</string>
+    <string name="sound_setting">Sound Setting</string>
+    <string name="operator_setting">Operator Setting</string>
+    <string name="gps_setting">Gps Setting</string>
+    <string name="power">Power</string>
+    <string name="apps">Apps</string>
+    <string name="notification">Notification</string>
+    <string name="permissions">Permissions</string>
+    <string name="disable_animation">Disable Open/Close panel Animation</string>
+    <string name="pager">When this option enable every page has 9 item inside</string>
+    <string name="pager_and_edge_cant_enable_same_time">Pager and Edge menu can not be enable at same time</string>
+    <string name="warning">Warning</string>
+    <string name="screenshot_saved_at">Your new screenshot saved at %s path</string>
+    <string name="sorry">Sorry</string>
+    <string name="reboot">Reboot</string>
+    <string name="root_needed">Root Needed</string>
+    <string name="clipboard">Clipboard</string>
+    <string name="translator">Translator</string>
+    <string name="paste_your_text_here">Paste Your text here</string>
+    <string name="add_to_clipboard">Add from editor</string>
+    <string name="add_from_clipboard">Add from Clipboard</string>
+    <string name="add_more_clipboard_need_pro">Add more than 2 items into clipboard  need Pro version</string>
+    <string name="tap_to_clipboard">Click on item to copy it to clipboard</string>
+    <string name="animate_marquee">When this option enable if texts in panel not fit as width start animating</string>
+    <string name="screen_recording">Screen Recorder</string>
+    <!--    Buttons    -->
+
+    <!--  Bug Report  -->
+    <string name="first_name">First Name</string>
+    <string name="phone_number">Mobile</string>
+    <string name="type_ticket_title">Enter title of your message</string>
+    <string name="ticket">Ticket</string>
+    <string name="success_upload_report">Report successfully uploaded</string>
+    <string name="rate_the_app">For progress app please rate or review</string>
+    <string name="review">Review</string>
+    <string name="rate_now">Rate Now</string>
+    <string name="do_not_ask_rate">Don\'t ask again.</string>
+    <string name="last_name">Last Name</string>
+    <!--  Bug Report  -->
+
+    <!--  Translate  -->
+    <string name="enter_your_text_to_translate">Enter your text to translate</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="downloading_translation">Downloading language please wait for a few minutes to complete the download.</string>
+    <!--  Translate  -->
+
+    <!-- Login -->
+    <string name="enterEmail">Enter email address</string>
+    <string name="password_length_must_grater_than_six">Password length must greater than 6 character</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="forgotPasswordQuestion">Forgot Password?</string>
+    <string name="orLoginWith">or Login with</string>
+    <string name="loginWithGoogle">Enter with Google</string>
+    <string name="login_with_sms">Enter with SMS</string>
+    <string name="first_login_to_system">First Login to system</string>
+    <!-- Login -->
+
+    <!-- Register -->
+    <string name="validate">Validation</string>
+    <string name="incorrect_repeat_pass">Incorrect repeat password</string>
+    <string name="confirm_password">Repeat Password</string>
+    <string name="order_not_found">Order not found</string>
+    <string name="user_registered_success">User Registered success</string>
+    <string name="user_with_this_email_exist">User with this email exist</string>
+    <string name="email_not_valid">Email not valid</string>
+    <string name="user_pass_incorrect">Username or Password incorrect</string>
+    <string name="incorrect_sms_code">Incorrect SMS code</string>
+    <string name="limit_sms_request">You reached 10 SMS in a day</string>
+    <string name="incorrect_email_code">Email code is incorrect</string>
+    <!-- Register -->
+
+    <!-- Forgot Password -->
+    <string name="enter_email_verify_code">Enter email verify code</string>
+    <string name="forgotPassword">Forgot password</string>
+    <string name="forgot_password_confirmation">Forgot password confirmation</string>
+    <string name="enter_new_password">Enter new password</string>
+    <string name="enter_new_password_repeat">Repeat new password</string>
+    <string name="password_not_match">Passwords not match</string>
+    <string name="reset_password_request">Reset password request</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_password_successes">Your password successfully changed</string>
+    <!-- Forgot Password -->
+
+    <!-- Login With SMS-->
+    <string name="remaining_time">Remaining time</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="request_sms_code">Request sms code</string>
+    <string name="verify_code">Verify code</string>
+    <!-- Login With SMS-->
+    <string name="version">Version</string>
+    <string name="logout">Logout</string>
+    <string name="email">Email</string>
+    <string name="last_login_date">Last login date</string>
+    <string name="profile">Profile</string>
+    <string name="user_name">User name</string>
+    <string name="install_fail">Install Failed</string>
+    <string name="manual_install">Install App Manually from %s</string>
+    <string name="delete_all_notifs_subtitle">Are you sure to delete all notifications?</string>
+    <string name="delete_all_notifications_title">Delete All Notifications</string>
+    <string name="start">Start</string>
+    <string name="write_a_message">Write a message</string>
+    <string name="in_progress">In Progress</string>
+    <string name="solved">Solved</string>
+    <string name="enable_disable_subtitle">You can manage Enable or Disable.</string>
+    <string name="auto_transparency">Auto Transparency</string>
+    <string name="stick_to_edge">Stick To Edge</string>
+    <string name="internet_speed">Internet Speed</string>
+    <string name="edge_panel">Edge Panel</string>
+    <string name="animation_open_close">Animation Open/Close</string>
+    <string name="paging_panel">Paging Panel</string>
+    <string name="animate_text_icon_panel">Animate Text Icon Panel</string>
+    <string name="button_selected_color">Selected color for button</string>
+    <string name="selected_color_for_panel_icons">Selected color for icons in panel.</string>
+    <string name="panel_selected_color">Panel selected color.</string>
+    <string name="edit_position_subtitle">You can rearrange and change buttons behavior.</string>
+    <string name="deactivate_device_admin">Delete need to deactivate device admin if enabled.</string>
+    <string name="restore">Restore</string>
+    <string name="notification_empty">You have no new notification.\n All notification appears here.</string>
+    <string name="empty_buttons">Select the + button to add to the list.</string>
+    <string name="empty_ticket">Press the + button to start a new conversation with support.</string>
+    <string name="offline">Offline</string>
+    <string name="circular_button">Circular Button</string>
+    <string name="circular_subtitle">This option adds circular around the buttons in the panel.</string>
+    <string name="export_database">Export Database</string>
+    <string name="export_subtitle">You can export all data for the clipboard, and Leitner box to a file on a disk.</string>
+    <string name="import_subtitle">You can import all data for the clipboard, and Leitner box from a file on a disk.</string>
+    <string name="import_database">Import Database</string>
+    <string name="export_database_path">Your database stored at path %s</string>
+    <string name="import_database_path">Your database was successfully imported.Please restart application after import backup</string>
+    <string name="show_button_quick_setting">Show Button</string>
+    <string name="hide_button_quick_setting">Hide Button</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="request_permission_accessibility_notif_title">Enable Accessibility</string>
+    <string name="request_permission_accessibility_notif_sub_title">For actions like back, home, multitasking and etc need this permission</string>
+    <string name="stop_recording">Stop</string>
+    <string name="screen_recording_path">File Saved at:%s</string>
+    <string name="leitner_box">Leitner Box</string>
+    <string name="leitner_box_sub_title">You can view and manage the progress of the Leitner box.</string>
+    <string name="add_question">Add Question</string>
+    <string name="add_or_edit_leitner">Add Or Edit Leitner</string>
+    <string name="reviewable">Reviewable: </string>
+    <string name="questions">Questions:</string>
+    <string name="tap_to_show_answer">Tap to show answer</string>
+    <string name="guess">Guess</string>
+    <string name="fail">Fail</string>
+    <string name="definitions">Definitions</string>
+    <string name="synonyms">Synonyms</string>
+    <string name="total">Total %1$s / %2$s</string>
+    <string name="failed">Failed: </string>
+    <string name="correct">Correct: </string>
+    <string name="manual_answer">Manual Answer</string>
+    <string name="pronunciation">Pronunciation: %1$s</string>
+    <string name="noun">Noun</string>
+    <string name="verb">Verb</string>
+    <string name="adjective">Adjective</string>
+    <string name="adverb">Adverb</string>
+    <string name="unknown">Unknown</string>
+    <string name="download_dictionary">Download Dictionary</string>
+    <string name="manage_dictionaries">Manage Dictionaries</string>
+    <string name="means">Means</string>
+    <string name="import_all_dic_to_leitner">Import all Dictionary to Leitner?</string>
+    <string name="import_to_db">Import</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="enter_current_password">Enter current password</string>
+    <string name="enter_first_name">Enter Name Correctly</string>
+    <string name="enter_family_name">Enter Last Name correctly</string>
+    <string name="user_edited_successfully">User Detail edited successfully.</string>
+    <string name="total_reviewable_count_in_leitner">"Reviewable : %s "</string>
+    <string name="total_question_count_in_leitner">"Total : %s "</string>
+    <string name="empty_ticket_message">Please fill message box</string>
+    <string name="download_failed_title">Download Failed!</string>
+    <string name="download_failed_message">For some reason download failed :%s</string>
+    <string name="downloading_dictionary_status">Downloading %d %%</string>
+    <string name="uncompressing">Uncompressing</string>
+    <string name="imported_successfully">Imported all items to leitner</string>
+    <string name="exit_from_review_title">Are you sure to exit from review?</string>
+    <string name="yes">Yes</string>
+    <string name="is_back_to_top_level_enable_when_failed_guess">is back to top level enable when failed guess</string>
+    <string name="back_to_top_level">Back to top</string>
+    <string name="a_z">A-Z</string>
+    <string name="fav">Fav</string>
+    <string name="date">Date</string>
+    <string name="level">Level</string>
+    <string name="edit">Edit</string>
+    <string name="theme_packs">Theme Packs</string>
+    <string name="automatic_backup_path">Automatic backup found in : \nAndroid/data/ir.amozkade.advancedAsisstiveTouche</string>
+    <string name="write_guess_word">Write guessed word here</string>
+    <string name="check">check</string>
+    <string name="reverse_review_level">Reverse Review Level %s</string>
+    <string name="remaining_day">%s day left</string>
+    <string name="export_to_google_drive">Backup To Drive</string>
+    <string name="import_from_google_drive">Import From Drive</string>
+    <string name="upload_to_drive_subtitle_button">Backup Leitner Box to google drive</string>
+    <string name="import_from_google_drive_subtitle">Import backup from google drive</string>
+    <string name="upload_google_drive_percent">%s%% Uploaded To Google Drive</string>
+    <string name="show_the_definition_and_synonym">Show the Definition and Synonym</string>
+    <string name="definition_and_synonym">Definition and Synonym</string>
+    <string name="completed">Completed</string>
+    <string name="completed_count_in_leitner">Completed : %s</string>
+    <string name="back_to_list">Back to list</string>
+    <string name="chose_leitner_to_move">Chose Leitner To Move</string>
+    <string name="move">Move</string>
+</resources>
+
+

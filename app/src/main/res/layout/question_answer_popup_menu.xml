@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/transparent"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingEnd="32dp"
+        android:paddingRight="32dp"
+        tools:ignore="RtlSymmetry">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/popup_menu_background"
+            android:clipChildren="true"
+            android:clipToPadding="true"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            tools:ignore="UnusedAttribute,UselessParent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDelete"
+                style="@style/popup_menu_button"
+                android:text="@string/delete"
+                android:textColor="@color/red"
+                app:icon="@drawable/ic_delete"
+                app:iconTint="@color/red"
+                app:rippleColor="@color/red" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEdit"
+                style="@style/popup_menu_button"
+                android:text="@string/edit"
+                app:icon="@drawable/ic_edit" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMoveToAnotherLeitner"
+                style="@style/popup_menu_button"
+                android:text="@string/move"
+                app:icon="@drawable/ic_change"
+                app:iconSize="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBackToList"
+                style="@style/popup_menu_button"
+                android:text="@string/back_to_list"
+                android:textColor="@color/primary_color"
+                android:visibility="gone"
+                app:icon="@drawable/ic_back_to_list"
+                app:iconSize="16dp"
+                app:iconTint="@color/primary_color"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/paddingAllLayout"
+        android:paddingTop="@dimen/paddingAllLayout"
+        android:paddingRight="@dimen/paddingAllLayout">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:clickable="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_leitner" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/medium_font_family"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:paddingStart="@dimen/paddingAllLayout"
+            android:paddingLeft="@dimen/paddingAllLayout"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintLeft_toRightOf="@+id/imgIcon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry"
+            tools:text="test" />
+
+        <LinearLayout
+            style="@style/dividerInMain"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

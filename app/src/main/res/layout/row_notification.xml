@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="ir.mobitrain.applicationcore.helper.Converters" />
+
+        <variable
+            name="notification"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.notification.Notification" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/paddingAllLayout2X"
+        android:layout_marginTop="@dimen/paddingAllLayout3X"
+        android:layout_marginEnd="@dimen/paddingAllLayout2X"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/paddingAllLayout">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            android:elevation="10dp"
+            android:minHeight="72dp"
+            android:translationZ="8dp"
+            app:cardBackgroundColor="@color/white_darker"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            tools:ignore="UnusedAttribute">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/paddingAllLayout">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{notification.message}"
+                    android:textColor="@color/black"
+                    style="@style/bold_font_family"
+                    tools:ignore="MissingConstraints"
+                    tools:text="test" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtSendDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginLeft="@dimen/paddingAllLayout"
+            android:layout_marginTop="4dp"
+            android:alpha=".6"
+            android:text="@{Converters.convertToShamsi( notification.dateSend)}"
+            android:textColor="@color/primary_dark_color"
+            android:textSize="8sp"
+            style="@style/medium_font_family"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv"
+            tools:ignore="SmallSp"
+            tools:text="2020-16-08 14:23" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

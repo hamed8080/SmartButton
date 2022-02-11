@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="leitner"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.leitners.models.Leitner" />
+    </data>
+
+
+    <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SquareButtonWithOnlyTitleCenter
+        android:id="@+id/txtName"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        squareWithOnlyTitle="@{leitner.name}"
+        tools:square_with_titleOnly_title="Test"
+        style="@style/left_grid_item"
+        android:layout_margin="@dimen/paddingAllLayout"
+        android:layout_width="match_parent"
+        android:layout_height="164dp"
+        tools:text="test Leitner name" />
+</layout>

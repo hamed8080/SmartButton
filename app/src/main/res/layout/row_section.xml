@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/paddingAllLayout">
+
+        <TextView
+            android:id="@+id/txtSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="@dimen/paddingAllLayout"
+            android:paddingRight="@dimen/paddingAllLayout"
+            android:paddingStart="@dimen/paddingAllLayout"
+            android:paddingLeft="@dimen/paddingAllLayout"
+            android:textColor="@color/primary_dark_color"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            style="@style/heavy_font_family"
+            tools:ignore="RtlSymmetry"
+            tools:text="Title"
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="128dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:paddingBottom="@dimen/paddingAllLayout"
+            android:clipToPadding="false"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+</layout>

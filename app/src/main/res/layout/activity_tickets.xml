@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.tickets.TicketsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action_bar_title="@string/ticket"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgEmptyTicket"
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_support"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtEmptyTicket"
+            style="@style/heavy_font_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/empty_ticket"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgEmptyTicket"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/actionBar" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/startNewTicketContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white_darker"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/actionBar"
+            tools:visibility="gone">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tfTitle"
+                style="@style/simple_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/paddingAllLayout2X"
+                android:layout_marginTop="@dimen/paddingAllLayout3X"
+                android:layout_marginRight="@dimen/paddingAllLayout2X"
+                app:boxCornerRadiusBottomEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="80"
+                app:counterTextAppearance="@style/counter_appearance"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/edit_text_inside_input_layout"
+                    app:textInputEdiTextWatcher="@{vm.titleTextWatcher}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:hint="@string/type_ticket_title"
+                    android:minHeight="72dp"
+                    android:typeface="monospace" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSendStartTicket"
+                style="@style/primary_button"
+                android:layout_marginStart="@dimen/paddingAllLayout2X"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:layout_marginEnd="@dimen/paddingAllLayout2X"
+                android:text="@string/start"
+                app:layout_constraintTop_toBottomOf="@+id/tfTitle"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/btnStartNewTicket"
+            style="@style/bold_font_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/paddingAllLayout"
+            android:backgroundTint="@color/blue"
+            android:elevation="2dp"
+            android:fontFamily="@font/iransans_bold"
+            android:text="@string/ticket"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="UnusedAttribute" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

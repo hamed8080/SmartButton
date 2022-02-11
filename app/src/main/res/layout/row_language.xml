@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.language.LanguageViewModel" />
+
+        <variable
+            name="language"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.language.Language" />
+    </data>
+
+    <TextView
+        android:id="@+id/txtLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_margin="@dimen/paddingAllLayout"
+        android:background="@drawable/cv_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/ripple_circle"
+        android:gravity="center_vertical|start"
+        android:padding="@dimen/paddingAllLayout"
+        android:elevation="20dp"
+        android:onClick="@{(v)-> vm.languageTaped(language.identifier)}"
+        android:text="@{language.name}"
+        android:textColor="@color/primary_dark_color"
+        style="@style/bold_font_family"
+        tools:ignore="UnusedAttribute"
+        tools:text="test" />
+</layout>

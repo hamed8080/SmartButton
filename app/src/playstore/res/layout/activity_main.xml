@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="ir.amozkade.advancedAsisstiveTouche.R" />
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.mainAssistiveTouch.MainAssistiveViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mainContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                tools:ignore="UnusedAttribute">
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+                    android:id="@+id/actionBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:action_bar_back_button="false"
+                    app:action_bar_is_main_font="true"
+                    app:action_bar_login_button="false"
+                    app:action_bar_notification_button="true"
+                    app:action_bar_title="@string/app_name"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongButtonWithTitleAndSubtitle
+                    android:id="@+id/btnEnableDisable"
+                    style="@style/row_item_style"
+                    longButtonIconResourceId="@{vm.model.serviceStarted ? R.drawable.ic_disable : R.drawable.ic_enable , default=`R.drawable.ic_enable`}"
+                    longButtonTitleString="@{vm.model.serviceStarted ? @string/disable_button : @string/enable_button }"
+                    android:onClick="@{(v)->vm.enableDisableTaped()}"
+                    app:layout_constraintTop_toBottomOf="@+id/actionBar"
+                    app:sub_title="@string/enable_disable_subtitle"
+                    app:title="@string/enable_button"
+                    android:layout_height="96dp"
+                    tools:ignore="MissingConstraints" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongButtonWithTitleAndSubtitle
+                    android:id="@+id/btnEditPosition"
+                    style="@style/row_item_style"
+                    app:icon="@drawable/ic_edit_position"
+                    android:layout_height="96dp"
+                    app:layout_constraintTop_toBottomOf="@+id/btnEnableDisable"
+                    app:sub_title="@string/edit_position_subtitle"
+                    app:title="@string/edit_button_positions"
+                    tools:ignore="MissingConstraints" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongButtonWithTitleAndSubtitle
+                    android:id="@+id/btnLeitner"
+                    style="@style/row_item_style"
+                    app:icon="@drawable/ic_leitner"
+                    android:layout_height="96dp"
+                    app:layout_constraintTop_toBottomOf="@+id/btnEditPosition"
+                    app:sub_title="@string/leitner_box_sub_title"
+                    app:title="@string/leitner_box"
+                    tools:ignore="MissingConstraints" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/actionContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/paddingAllLayout2X"
+                    android:layout_marginLeft="@dimen/paddingAllLayout2X"
+                    android:layout_marginTop="@dimen/paddingAllLayout2X"
+                    android:layout_marginEnd="@dimen/paddingAllLayout2X"
+                    android:layout_marginRight="@dimen/paddingAllLayout2X"
+                    android:background="@drawable/cv_background"
+                    android:elevation="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnLeitner">
+
+                    <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongHorizontalButtonWithSubtitleFront
+                        android:id="@+id/btnSingleTap"
+                        setLongHorizontalSubTitle="@{vm.model.singleTapSelectedActionTitle}"
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:foreground="@drawable/ripple_circle"
+                        android:onClick="@{(v)->vm.openGestureActionAlert(0)}"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:long_horizontal_icon="@drawable/ic_single_tap"
+                        app:long_horizontal_sub_title="@string/open_window"
+                        app:long_horizontal_title="@string/single_tap_action" />
+
+                    <LinearLayout
+                        android:id="@+id/d1"
+                        style="@style/list_item_divider_long_in_main"
+                        app:layout_constraintTop_toBottomOf="@+id/btnSingleTap"
+                        tools:ignore="MissingConstraints" />
+
+                    <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongHorizontalButtonWithSubtitleFront
+                        android:id="@+id/btnHoldAction"
+                        setLongHorizontalSubTitle="@{vm.model.holdSelectedActionTitle}"
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:foreground="@drawable/ripple_circle"
+                        android:onClick="@{(v)->vm.openGestureActionAlert(1)}"
+                        app:layout_constraintTop_toBottomOf="@+id/d1"
+                        app:long_horizontal_icon="@drawable/ic_hold"
+                        app:long_horizontal_sub_title="@string/hide"
+                        app:long_horizontal_title="@string/hold_action" />
+
+                    <LinearLayout
+                        android:id="@+id/d2"
+                        style="@style/list_item_divider_long_in_main"
+                        app:layout_constraintTop_toBottomOf="@+id/btnHoldAction"
+                        tools:ignore="MissingConstraints" />
+
+                    <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongHorizontalButtonWithSubtitleFront
+                        setLongHorizontalSubTitle="@{vm.model.doubleTapSelectedActionTitle}"
+                        android:layout_width="match_parent"
+                        android:layout_height="96dp"
+                        android:foreground="@drawable/ripple_circle"
+                        android:onClick="@{(v)->vm.openGestureActionAlert(2)}"
+                        app:layout_constraintTop_toBottomOf="@+id/d2"
+                        app:long_horizontal_icon="@drawable/ic_double_tap"
+                        app:long_horizontal_title="@string/double_tap_action" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/centerGuideline"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".5" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SquareButtonWithTitle
+                    android:id="@+id/btnTheme"
+                    style="@style/left_grid_item"
+                    android:layout_height="164dp"
+                    app:layout_constraintEnd_toStartOf="@+id/centerGuideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/actionContainer"
+                    app:square_icon="@drawable/ic_theme_store"
+                    app:square_title="@string/theme_store" />
+
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SquareButtonWithTitle
+                    android:id="@+id/btnPreference"
+                    style="@style/right_grid_item"
+                    android:layout_width="0dp"
+                    android:layout_height="164dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/centerGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/actionContainer"
+                    app:square_icon="@drawable/ic_preference"
+                    app:square_title="@string/preference" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SquareButtonWithTitle
+                    android:id="@+id/btnPermissions"
+                    style="@style/left_grid_item"
+                    android:layout_width="0dp"
+                    android:layout_height="164dp"
+                    app:layout_constraintEnd_toStartOf="@+id/centerGuideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnTheme"
+                    app:square_icon="@drawable/ic_permission"
+                    app:square_title="@string/permissions" />
+
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SquareButtonWithTitle
+                    android:id="@+id/btnLanguage"
+                    style="@style/right_grid_item"
+                    android:layout_width="0dp"
+                    android:layout_height="164dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/centerGuideline"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPreference"
+                    app:square_icon="@drawable/ic_language"
+                    app:square_title="@string/language" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongButtonWithTitleAndSubtitle
+                    android:id="@+id/btnBackUpToGoogleDrive"
+                    style="@style/row_item_style"
+                    android:layout_height="96dp"
+                    android:alpha="@{vm.model.googleDriveButtonsOpacity}"
+                    app:icon="@drawable/ic_google_drive"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPermissions"
+                    app:sub_title="@string/upload_to_drive_subtitle_button"
+                    app:title="@string/export_to_google_drive"
+                    tools:ignore="MissingConstraints" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongButtonWithTitleAndSubtitle
+                    android:id="@+id/btnImportBackupFromGoogleDrive"
+                    style="@style/row_item_style"
+                    android:layout_height="96dp"
+                    android:alpha="@{vm.model.googleDriveButtonsOpacity}"
+                    app:icon="@drawable/ic_google_drive"
+                    app:layout_constraintTop_toBottomOf="@+id/btnBackUpToGoogleDrive"
+                    app:sub_title="@string/import_from_google_drive_subtitle"
+                    app:title="@string/import_from_google_drive"
+                    tools:ignore="MissingConstraints" />
+
+                <ProgressBar
+                    android:id="@+id/uploadProgressBar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:progress="@{vm.model.googleDriveUploadPercent}"
+                    android:visibility="@{vm.model.googleDriveIsInUploadOrDownloading ? View.VISIBLE : View.GONE  , default=`gone`}"
+                    app:layout_constraintEnd_toEndOf="@+id/btnBackUpToGoogleDrive"
+                    app:layout_constraintStart_toStartOf="@+id/btnBackUpToGoogleDrive"
+                    app:layout_constraintTop_toBottomOf="@+id/btnImportBackupFromGoogleDrive"
+                    tools:progress="40"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtUploadPercent"
+                    style="@style/medium_font_family"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.model.googleDriveUploadPercentText}"
+                    android:visibility="@{vm.model.googleDriveIsInUploadOrDownloading ? View.VISIBLE : View.GONE  , default=`gone`}"
+                    app:layout_constraintEnd_toEndOf="@+id/btnBackUpToGoogleDrive"
+                    app:layout_constraintStart_toStartOf="@+id/btnBackUpToGoogleDrive"
+                    app:layout_constraintTop_toBottomOf="@+id/uploadProgressBar"
+                    tools:text="@string/upload_google_drive_percent"
+                    tools:visibility="visible" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongButtonWithTitleAndSubtitle
+                    android:id="@+id/btnBackUp"
+                    style="@style/row_item_style"
+                    android:onClick="@{(v)->vm.openFileExportPath()}"
+                    app:icon="@drawable/ic_export"
+                    app:layout_constraintTop_toBottomOf="@+id/txtUploadPercent"
+                    app:sub_title="@string/export_subtitle"
+                    app:title="@string/export_database"
+                    android:layout_height="96dp"
+                    tools:ignore="MissingConstraints" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongButtonWithTitleAndSubtitle
+                    android:id="@+id/btnImport"
+                    style="@style/row_item_style"
+                    android:onClick="@{(v)->vm.openFileImportPath()}"
+                    app:icon="@drawable/ic_import"
+                    app:layout_constraintTop_toBottomOf="@+id/btnBackUp"
+                    android:layout_height="96dp"
+                    app:sub_title="@string/import_subtitle"
+                    app:title="@string/import_database"
+                    tools:ignore="MissingConstraints" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.LongButtonWithTitleAndSubtitle
+                    android:id="@+id/btnRemoveApp"
+                    style="@style/row_item_style"
+                    android:layout_height="96dp"
+                    app:icon="@drawable/ic_remove"
+                    app:layout_constraintTop_toBottomOf="@+id/btnImport"
+                    app:sub_title="@string/deactivate_device_admin"
+                    app:title="@string/remove_app"
+                    tools:ignore="MissingConstraints" />
+
+                <LinearLayout
+                    android:id="@+id/socialContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="@dimen/paddingAllLayout"
+                    android:layout_marginTop="@dimen/paddingAllLayout3X"
+                    android:layout_marginEnd="@dimen/paddingAllLayout"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/btnRemoveApp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTelegram"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/transparent"
+                        android:backgroundTint="@color/transparent"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:backgroundTint="@color/white_darker"
+                        app:icon="@drawable/ic_telegram"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="32dp"
+                        app:iconTint="@null"
+                        tools:ignore="MissingConstraints,UnusedAttribute" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtVersion"
+                    style="@style/bold_font_family"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:layout_marginBottom="@dimen/paddingAllLayout"
+                    android:gravity="center"
+                    android:text="@{vm.getVersion(context)}"
+                    android:textColor="@color/white_darker_3X"
+                    android:textSize="10sp"
+                    android:typeface="monospace"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/socialContainer"
+                    tools:ignore="SmallSp"
+                    tools:text="version: 1.4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mandatoryUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:elevation="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/force_update" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/paddingAllLayout"
+                android:gravity="center"
+                android:text="@string/update_to_this_version_is_mandatory"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.CTextFloatingActionButton
+            android:id="@+id/btnTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/paddingAllLayout"
+            app:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:text_color="@color/blue"
+            android:visibility="gone"
+            app:text_size="28sp"
+            app:text="@string/f_support"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

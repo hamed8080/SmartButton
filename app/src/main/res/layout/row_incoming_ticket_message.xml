@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="ir.mobitrain.applicationcore.helper.Converters" />
+
+        <variable
+            name="ticketMessage"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.tickets.conversation.model.TicketMessage" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/paddingAllLayout"
+        android:paddingLeft="@dimen/paddingAllLayout"
+        tools:ignore="RtlSymmetry">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:background="@drawable/incoming_message"
+            android:lineSpacingExtra="2dp"
+            android:minHeight="48dp"
+            android:padding="@dimen/paddingAllLayout"
+            android:text="@{ticketMessage.message}"
+            style="@style/bold_font_family"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="wrap"
+            app:layout_constraintWidth_percent="0.8"
+            tools:text="tes" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginLeft="@dimen/paddingAllLayout"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:gravity="start"
+            style="@style/medium_font_family"
+            android:text="@{Converters.convertToShamsi(ticketMessage.sendDate)}"
+            android:textColor="@color/white_darker_3X"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtMessage"
+            tools:ignore="SmallSp"
+            tools:text="10 min ago" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

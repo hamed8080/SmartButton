@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        android:layout_marginBottom="@dimen/paddingAllLayout"
+        android:layout_marginTop="@dimen/paddingAllLayout"
+
+        tools:ignore="UnusedAttribute">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDicName"
+            style="@style/bold_font_family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingStart="@dimen/paddingAllLayout"
+            android:paddingEnd="@dimen/paddingAllLayout"
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Oxford" />
+
+        <WebView
+            android:id="@+id/wbResult"
+            style="@style/medium_font_family"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clickable="false"
+            android:fadingEdge="vertical"
+            android:fadingEdgeLength="@dimen/paddingAllLayout"
+            android:focusable="false"
+            android:gravity="start"
+            android:layout_marginBottom="@dimen/paddingAllLayout"
+            android:paddingStart="@dimen/paddingAllLayout2X"
+            android:clipToPadding="false"
+            android:paddingEnd="@dimen/paddingAllLayout2X"
+            android:requiresFadingEdge="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDicName" />
+
+        <LinearLayout
+            android:id="@+id/clickableView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:elevation="10dp"
+            android:focusable="true"
+            android:foreground="@drawable/ripple_circle"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

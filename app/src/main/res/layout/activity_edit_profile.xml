@@ -1,0 +1,121 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.user.profile.editProfile.EditProfileViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/white_darker">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:minHeight="600dp">
+
+            <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+                android:id="@+id/actionBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:action_bar_title="@string/edit_profile" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:src="@drawable/img_avatar"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                app:layout_constraintTop_toBottomOf="@+id/actionBar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/parentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/imgProfile">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tfFirstName"
+                    style="@style/simple_input_layout"
+                    android:layout_marginStart="@dimen/paddingAllLayout3X"
+                    android:layout_marginEnd="@dimen/paddingAllLayout3X"
+                    android:nextFocusUp="@id/tfLastName"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtFirstName"
+                        style="@style/edit_text_inside_input_layout"
+                        app:textInputEdiTextWatcher="@{vm.firstNameTextWatcher}"
+                        android:hint="@string/first_name"
+                        android:text="@{vm.model.firstName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tfLastName"
+                    style="@style/simple_input_layout"
+                    android:layout_marginStart="@dimen/paddingAllLayout3X"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:layout_marginEnd="@dimen/paddingAllLayout3X"
+                    android:nextFocusUp="@id/tfPhone"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtLastName"
+                        style="@style/edit_text_inside_input_layout"
+                        app:textInputEdiTextWatcher="@{vm.lastNameTextWatcher}"
+                        android:hint="@string/last_name"
+                        android:text="@{vm.model.lastName}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tfPhone"
+                    style="@style/simple_input_layout"
+                    android:layout_marginStart="@dimen/paddingAllLayout3X"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:layout_marginEnd="@dimen/paddingAllLayout3X"
+                    android:nextFocusUp="@id/btnEdit"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtPhone"
+                        style="@style/edit_text_inside_input_layout"
+                        app:textInputEdiTextWatcher="@{vm.phoneTextWatcher}"
+                        android:hint="@string/phone_number"
+                        android:inputType="number"
+                        android:maxLength="11"
+                        android:text="@{vm.model.phone}" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEdit"
+                style="@style/primary_button"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:text="@string/save"
+                app:layout_constraintTop_toBottomOf="@+id/parentContainer"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
+

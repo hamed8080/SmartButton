@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.manageDictionaries.Dictionary" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtName"
+            style="@style/bold_font_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginLeft="@dimen/paddingAllLayout"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:text="@{model.name}"
+            android:textColor="@color/white_darker_3X"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hello" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtFileSize"
+            style="@style/medium_font_family"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginLeft="@dimen/paddingAllLayout"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            android:gravity="center"
+            android:text="@{model.fileSizeString}"
+            android:textColor="@color/white_darker_3X"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDownload"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnDownload"
+            tools:text="size: 48 kb" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDownload"
+            style="@style/icon_button"
+            android:layout_margin="@dimen/paddingAllLayout"
+            android:text="@string/f_download"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+        <ProgressBar
+            android:id="@+id/downloadProgress"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            android:max="100"
+            android:progressTint="@color/blue"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnDownload"
+            tools:ignore="UnusedAttribute"
+            tools:progress="10"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/downloadProgress"
+            app:layout_constraintStart_toStartOf="@+id/downloadProgress"
+            app:layout_constraintTop_toBottomOf="@+id/downloadProgress"
+            tools:text="Downloading 10%"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

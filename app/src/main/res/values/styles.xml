@@ -1,0 +1,191 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <item name="colorPrimaryDark">@color/white_darker</item>
+        <item name="colorAccent">@color/secondary_color</item>
+        <item name="android:textColor">@color/white_darker_2X</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+    </style>
+
+    <style name="VerificationEditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">number</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:layout_margin">@dimen/paddingAllLayout</item>
+    </style>
+
+    <style name="NormalTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxCornerRadiusBottomEnd">5dp</item>
+        <item name="boxCornerRadiusBottomStart">5dp</item>
+        <item name="boxCornerRadiusTopEnd">5dp</item>
+        <item name="boxCornerRadiusTopStart">5dp</item>
+        <item name="layout_constraintVertical_bias">0.3</item>
+        <item name="android:layout_marginLeft">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginRight">@dimen/paddingAllLayout2X</item>
+        <item name="layout_editor_absoluteX">30dp</item>
+    </style>
+
+    <style name="dividerInMain">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginStart">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginLeft">@dimen/paddingAllLayout</item>
+        <item name="android:alpha">.06</item>
+        <item name="android:background">@color/black_with_transparency</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+    <style name="RoundTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxCornerRadiusBottomEnd">5dp</item>
+        <item name="boxCornerRadiusBottomStart">5dp</item>
+        <item name="boxCornerRadiusTopEnd">5dp</item>
+        <item name="boxCornerRadiusTopStart">5dp</item>
+        <item name="android:fontFamily">@font/sf_pro_rounded_bold</item>
+    </style>
+
+    <style name="chipInProgressTicketText" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/sf_pro_rounded_bold</item>
+    </style>
+
+    <style name="chipSolvedTicketText" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/sf_pro_rounded_bold</item>
+    </style>
+
+    <!-- New Design -->
+    <style name="main_title_font" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/pacifico</item>
+    </style>
+
+    <style name="card_view_background" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">20dp</item>
+        <item name="android:translationZ" tools:ignore="NewApi">20dp</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="list_item_divider_long_in_main">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginStart">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginLeft">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginEnd">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginRight">@dimen/paddingAllLayout</item>
+        <item name="android:alpha">.06</item>
+        <item name="android:background">@color/black_with_transparency</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="row_item_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">96dp</item>
+        <item name="android:layout_marginStart">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginLeft">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginTop">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginEnd">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginRight">@dimen/paddingAllLayout2X</item>
+        <item name="android:background">@drawable/cv_background</item>
+        <item name="android:elevation" tools:ignore="NewApi">20dp</item>
+        <item name="android:foreground">@drawable/ripple_circle</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="right_grid_item" parent="row_item_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginLeft">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginTop">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginEnd">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginRight">@dimen/paddingAllLayout2X</item>
+    </style>
+
+    <style name="left_grid_item" parent="row_item_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginLeft">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginTop">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginEnd">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginRight">@dimen/paddingAllLayout</item>
+    </style>
+
+    <style name="counter_appearance">
+        <item name="fontFamily">@font/sf_pro_rounded_bold</item>
+    </style>
+
+    <style name="action_floating_button" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/paddingAllLayout</item>
+        <item name="android:backgroundTint" tools:ignore="NewApi">@color/white</item>
+        <item name="borderWidth">0dp</item>
+        <item name="fabSize">mini</item>
+        <item name="elevation">10dp</item>
+        <item name="text_color">@color/blue</item>
+        <item name="text_size">20sp</item>
+    </style>
+
+    <style name="action_floating_button_front_text" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginRight">@dimen/paddingAllLayout</item>
+        <item name="android:background">@drawable/cv_background</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/paddingAllLayout</item>
+        <item name="android:elevation" tools:ignore="NewApi">10dp</item>
+        <item name="android:paddingEnd" tools:ignore="NewApi">@dimen/paddingAllLayout</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/sf_pro_rounded_bold</item>
+        <item name="android:textColor">@color/black_lighter_2X</item>
+    </style>
+    <!-- New Design -->
+
+
+    <style name="Theme.AppCompat.Translucent" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <style name="popup_menu_button" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:backgroundTint" tools:ignore="NewApi">@color/white</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:stateListAnimator" tools:ignore="NewApi">@null</item>
+        <item name="android:textColor">@color/white_darker_3X</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="iconTint">@color/white_darker_3X</item>
+    </style>
+
+</resources>

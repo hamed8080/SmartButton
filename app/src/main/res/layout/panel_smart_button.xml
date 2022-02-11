@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:overScrollMode="never"
+            android:translationZ="5dp"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints,UnusedAttribute"
+            tools:visibility="visible" />
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.PageIndicatorView
+            android:id="@+id/pageIndicator"
+            android:layout_width="96dp"
+            android:layout_height="16dp"
+            android:elevation="11dp"
+            android:translationZ="@dimen/paddingAllLayout"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints,UnusedAttribute"
+            app:layout_constraintBottom_toBottomOf="@+id/vp"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            android:overScrollMode="never"
+            android:translationZ="5dp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:ignore="MissingConstraints,UnusedAttribute"
+            tools:itemCount="9"
+            tools:listitem="@layout/row_button_in_panel"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fakeButtonImageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:alpha="1"
+            android:scaleType="fitXY"
+            android:elevation="12dp"
+            android:translationZ="12dp"
+            tools:ignore="MissingConstraints,UnusedAttribute"
+            tools:src="@drawable/logo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

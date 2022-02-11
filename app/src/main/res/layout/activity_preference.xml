@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="ir.mobitrain.applicationcore.helper.Converters" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.preferenceActivity.PreferenceViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action_bar_title="@string/preference"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/actionBar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mainContainer"
+                android:layout_width="match_parent"
+                android:animateLayoutChanges="true"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".5" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtButtonPreferencesTitle"
+                    style="@style/heavy_font_family"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/paddingAllLayout"
+                    android:text="@string/button_preference"
+                    android:textColor="@color/primary_dark_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+                    android:id="@+id/swAlphaTimer"
+                    style="@style/row_item_style"
+                    setSwitchButtonChecked="@{vm.model.autoAlphaEnabled}"
+                    switchChangeListener="@{vm.swAutoAlphaListener}"
+                    app:layout_constraintTop_toBottomOf="@+id/txtButtonPreferencesTitle"
+                    app:switch_button_sub_title="@string/alpha_after_three_second"
+                    app:switch_button_title="@string/auto_transparency"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+                    android:id="@+id/swAutomaticStickToEdge"
+                    style="@style/row_item_style"
+                    setSwitchButtonChecked="@{vm.model.moveToEdgeEnabled}"
+                    switchChangeListener="@{vm.swMoveToEdgeListener}"
+                    app:layout_constraintTop_toBottomOf="@+id/swAlphaTimer"
+                    app:switch_button_sub_title="@string/automatic_moved_to_edge"
+                    app:switch_button_title="@string/stick_to_edge"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+                    android:id="@+id/swShowInternetSpeed"
+                    style="@style/row_item_style"
+                    setSwitchButtonChecked="@{vm.model.showSpeedEnabled}"
+                    setSwitchEnabled="@{vm.model.showSpeedEnabledFor}"
+                    switchChangeListener="@{vm.swShowSpeedListener}"
+                    app:layout_constraintTop_toBottomOf="@+id/swAutomaticStickToEdge"
+                    app:switch_button_sub_title="@string/show_button_speed"
+                    app:switch_button_title="@string/internet_speed"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <!-- Button Size -->
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.StepperButton
+                    android:id="@+id/stButtonSize"
+                    setStepperEnable="@{vm.model.buttonSizeSliderEnabled}"
+                    setStepperProgress="@{vm.model.buttonSizeSliderValue}"
+                    setStepperProgressListener="@{vm.stepperButtonSizeListener}"
+                    style="@style/left_grid_item"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/swShowInternetSpeed"
+                    app:stepper_button_current_percent="10"
+                    app:stepper_button_max_value="100"
+                    app:stepper_button_title="@string/button_size"
+                    tools:ignore="UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.StepperButton
+                    android:id="@+id/stSpeedSize"
+                    setStepperProgress="@{vm.model.speedTextSize}"
+                    setStepperProgressListener="@{vm.stepperSpeedTextSizeListener}"
+                    style="@style/right_grid_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/swShowInternetSpeed"
+                    app:stepper_button_current_percent="10"
+                    app:stepper_button_max_value="48"
+                    app:stepper_button_title="@string/speed_size"
+                    tools:ignore="UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ColorPickerButton
+                    android:id="@+id/btnButtonColor"
+                    style="@style/row_item_style"
+                    setButtonColorSelectedColor="@{vm.model.buttonSelectedColor}"
+                    android:onClick="@{(v)->vm.selectButtonColorTaped()}"
+                    app:color_picker_sub_title="@string/button_selected_color"
+                    app:color_picker_title="@string/button_color"
+                    app:layout_constraintTop_toBottomOf="@+id/stSpeedSize"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtPanelPreferencesTitle"
+                    style="@style/heavy_font_family"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/paddingAllLayout"
+                    android:text="@string/panel_preference"
+                    android:textColor="@color/primary_dark_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    app:layout_constraintTop_toBottomOf="@+id/btnButtonColor" />
+
+                <!-- Panel Color -->
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+                    android:id="@+id/swEdgePanel"
+                    style="@style/row_item_style"
+                    setSwitchButtonChecked="@{vm.model.leftPanelEnabled}"
+                    setSwitchEnabled="@{vm.model.showSpeedEnabledFor}"
+                    switchChangeListener="@{vm.swIsLeftMenuListener}"
+                    app:layout_constraintTop_toBottomOf="@+id/txtPanelPreferencesTitle"
+                    app:switch_button_sub_title="@string/left_menu_title"
+                    app:switch_button_title="@string/edge_panel"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+                    android:id="@+id/swDisableAnimations"
+                    style="@style/row_item_style"
+                    setSwitchButtonChecked="@{vm.model.animationEnabled}"
+                    switchChangeListener="@{vm.swEnableAnimationListener}"
+                    app:layout_constraintTop_toBottomOf="@+id/swEdgePanel"
+                    app:switch_button_sub_title="@string/disable_animation"
+                    app:switch_button_title="@string/animation_open_close"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+                    android:id="@+id/swPager"
+                    style="@style/row_item_style"
+                    setSwitchButtonChecked="@{vm.model.pagerEnabled}"
+                    switchChangeListener="@{vm.swEnablePagerListener}"
+                    app:layout_constraintTop_toBottomOf="@+id/swDisableAnimations"
+                    app:switch_button_sub_title="@string/pager"
+                    app:switch_button_title="@string/paging_panel"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+                    android:id="@+id/swEnableMarquee"
+                    style="@style/row_item_style"
+                    setSwitchButtonChecked="@{vm.model.enableMarqueeAnimation}"
+                    android:visibility="visible"
+                    switchChangeListener="@{vm.swEnableMarqueeListener}"
+                    app:layout_constraintTop_toBottomOf="@+id/swPager"
+                    app:switch_button_sub_title="@string/animate_marquee"
+                    app:switch_button_title="@string/animate_text_icon_panel"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+                    android:id="@+id/swEnableCircular"
+                    style="@style/row_item_style"
+                    setSwitchButtonChecked="@{vm.model.enableCircularButton}"
+                    switchChangeListener="@{vm.swEnableCircularButtonListener}"
+                    app:layout_constraintTop_toBottomOf="@+id/swEnableMarquee"
+                    app:switch_button_sub_title="@string/circular_subtitle"
+                    app:switch_button_title="@string/circular_button"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ColorPickerButton
+                    android:id="@+id/btnPanelColor"
+                    setButtonColorSelectedColor="@{vm.model.panelSelectedColor}"
+                    style="@style/row_item_style"
+                    android:onClick="@{(v)->vm.selectPanelColorTaped()}"
+                    app:color_picker_sub_title="@string/panel_selected_color"
+                    app:color_picker_title="@string/panel_color"
+                    app:layout_constraintTop_toBottomOf="@+id/swEnableCircular"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ColorPickerButton
+                    android:id="@+id/btnPanelButtonsColor"
+                    setButtonColorSelectedColor="@{vm.model.panelButtonsColor}"
+                    style="@style/row_item_style"
+                    android:onClick="@{(v)->vm.selectPanelButtonsColorTaped()}"
+                    app:color_picker_sub_title="@string/selected_color_for_panel_icons"
+                    app:color_picker_title="@string/panel_buttons_color"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPanelColor"
+                    tools:ignore="MissingConstraints,UnusedAttribute" />
+
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.StepperButton
+                    android:id="@+id/stPanelWidth"
+                    setStepperProgress="@{vm.model.panelWidthPercent}"
+                    setStepperProgressListener="@{vm.stepperPanelWidthPercentListener}"
+                    style="@style/left_grid_item"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPanelButtonsColor"
+                    app:stepper_button_current_percent="10"
+                    app:stepper_button_max_value="100"
+                    app:stepper_button_title="@string/panel_width_percent"
+                    tools:ignore="UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.StepperButton
+                    android:id="@+id/stPanelButtonsSize"
+                    setStepperProgress="@{vm.model.panelButtonsIconSize}"
+                    setStepperProgressListener="@{vm.stepperButtonSizeInPanelListener}"
+                    style="@style/right_grid_item"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPanelButtonsColor"
+                    app:stepper_button_current_percent="10"
+                    app:stepper_button_max_value="200"
+                    app:stepper_button_title="@string/panel_button_sizes"
+                    tools:ignore="UnusedAttribute" />
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.StepperButton
+                    android:id="@+id/stPanelButtonTextSize"
+                    setStepperProgress="@{vm.model.buttonTextSizeInPanel}"
+                    setStepperProgressListener="@{vm.stepperTextSizeInPanelListener}"
+                    style="@style/left_grid_item"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stPanelWidth"
+                    app:stepper_button_current_percent="10"
+                    app:stepper_button_max_value="10"
+                    app:stepper_button_title="@string/panel_button_text_size"
+                    android:layout_marginBottom="@dimen/paddingAllLayout"
+                    tools:ignore="UnusedAttribute" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

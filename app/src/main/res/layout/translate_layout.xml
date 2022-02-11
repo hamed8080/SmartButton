@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.assistiveButton.buttons.translate.TranslateViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/subWindowView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/paddingAllLayout"
+            android:background="@drawable/progress_bar_container"
+            android:clickable="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            android:padding="@dimen/paddingAllLayout"
+            android:translationZ="@dimen/paddingAllLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.498"
+            tools:ignore="UnusedAttribute">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtTitle"
+                style="@style/heavy_font_family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/translator"
+                android:textSize="26sp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:inputType="textMultiLine"
+                android:textColorHint="@color/text_input_layout_stroke_color"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:hintTextColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTitle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt"
+                    style="@style/bold_font_family"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top"
+                    android:hint="@string/enter_your_text_to_translate"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFromClipboard"
+                style="@style/primary_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:layout_marginEnd="@dimen/paddingAllLayout"
+                android:layout_marginRight="@dimen/paddingAllLayout"
+                android:backgroundTint="@color/white_darker"
+                android:text="@string/add_from_clipboard"
+                android:textColor="@color/primary_color"
+                android:textSize="12sp"
+                app:cornerRadius="4sp"
+                app:icon="@drawable/ic_clipboard"
+                app:iconGravity="textEnd"
+                app:iconSize="28sp"
+                app:iconTint="@color/primary_color"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                app:strokeColor="@color/white" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addToLeitnerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/btnFromClipboard"
+                tools:visibility="visible">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddToLeitner"
+                    style="@style/icon_button"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:text="@string/f_stack"
+                    android:textColor="@color/white"
+                    app:iconTint="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/white" />
+
+                <Spinner
+                    android:id="@+id/leitner_selector"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:backgroundTint="@color/white"
+                    android:minHeight="48dp"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnAddToLeitner"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtFromTitle"
+                style="@style/bold_font_family"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:text="@string/from"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/sourceLangSelector"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addToLeitnerLayout" />
+
+            <Spinner
+                android:id="@+id/sourceLangSelector"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:backgroundTint="@color/white"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtFromTitle"
+                app:layout_constraintTop_toBottomOf="@+id/addToLeitnerLayout"
+                tools:ignore="RtlCompat" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSwitchLang"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:backgroundTint="@color/white"
+                android:text=""
+                app:icon="@drawable/ic_compare_arrows_black_24dp"
+                app:iconGravity="textEnd"
+                app:iconSize="28dp"
+                app:iconTint="@color/black"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sourceLangSelector"
+                app:strokeColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtToTitle"
+                style="@style/bold_font_family"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:text="@string/to"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/targetLangSelector"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/targetLangSelector" />
+
+            <Spinner
+                android:id="@+id/targetLangSelector"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:backgroundTint="@color/white"
+                android:minHeight="48dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtToTitle"
+                app:layout_constraintTop_toBottomOf="@+id/buttonSwitchLang"
+                tools:ignore="RtlCompat" />
+
+            <LinearLayout
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:background="#616161"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/targetLangSelector" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/targetText"
+                style="@style/bold_font_family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:gravity="top"
+                android:maxHeight="96dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

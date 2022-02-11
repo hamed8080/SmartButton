@@ -1,0 +1,92 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="VerificationEditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">number</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:layout_margin">@dimen/paddingAllLayout</item>
+    </style>
+
+    <style name="NormalTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxCornerRadiusBottomEnd">5dp</item>
+        <item name="boxCornerRadiusBottomStart">5dp</item>
+        <item name="boxCornerRadiusTopEnd">5dp</item>
+        <item name="boxCornerRadiusTopStart">5dp</item>
+        <item name="layout_constraintVertical_bias">0.3</item>
+        <item name="android:layout_marginLeft">@dimen/paddingAllLayout2X</item>
+        <item name="android:layout_marginRight">@dimen/paddingAllLayout2X</item>
+        <item name="layout_editor_absoluteX">30dp</item>
+    </style>
+
+    <style name="dividerInMain">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginStart">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginLeft">@dimen/paddingAllLayout</item>
+        <item name="android:alpha">.06</item>
+        <item name="android:background">@color/black_with_transparency</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+    <style name="RoundTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxCornerRadiusBottomEnd">5dp</item>
+        <item name="boxCornerRadiusBottomStart">5dp</item>
+        <item name="boxCornerRadiusTopEnd">5dp</item>
+        <item name="boxCornerRadiusTopStart">5dp</item>
+    </style>
+
+    <style name="chipInProgressTicketText" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/iransans_bold</item>
+    </style>
+
+    <style name="chipSolvedTicketText" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">@font/iransans_bold</item>
+    </style>
+
+    <!-- New Design -->
+
+    <style name="action_floating_button" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/paddingAllLayout</item>
+        <item name="android:backgroundTint" tools:ignore="NewApi">@color/white</item>
+        <item name="borderWidth">0dp</item>
+        <item name="fabSize">mini</item>
+        <item name="elevation">10dp</item>
+        <item name="text_color">@color/blue</item>
+        <item name="text_size">20sp</item>
+    </style>
+
+    <style name="action_floating_button_front_text" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">@dimen/paddingAllLayout</item>
+        <item name="android:layout_marginRight">@dimen/paddingAllLayout</item>
+        <item name="android:background">@drawable/cv_background</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/paddingAllLayout</item>
+        <item name="android:elevation" tools:ignore="NewApi">10dp</item>
+        <item name="android:paddingEnd" tools:ignore="NewApi">@dimen/paddingAllLayout</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/iransans_bold</item>
+        <item name="android:textColor">@color/black_lighter_2X</item>
+    </style>
+    <!-- New Design -->
+
+</resources>

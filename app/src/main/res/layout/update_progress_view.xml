@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_with_transparency"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/paddingAllLayout"
+            android:background="@color/transparent"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="24dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/paddingAllLayout3X">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/imgHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/force_update"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_corner_radius_top_left="@dimen/paddingAllLayout"
+                    app:riv_corner_radius_top_right="@dimen/paddingAllLayout" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txtUpdating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:gravity="center"
+                    android:text="@string/update"
+                    android:textColor="@color/primary_dark_color"
+                    style="@style/bold_font_family"
+                    app:layout_constraintTop_toBottomOf="@+id/imgHeader" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/paddingAllLayout"
+                    android:layout_marginTop="@dimen/paddingAllLayout2X"
+                    android:layout_marginRight="@dimen/paddingAllLayout"
+                    android:layout_marginBottom="@dimen/paddingAllLayout3X"
+                    android:progress="10"
+                    app:layout_constraintTop_toBottomOf="@+id/txtUpdating" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

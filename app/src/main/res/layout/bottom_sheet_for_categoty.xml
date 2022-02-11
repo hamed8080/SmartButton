@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/paddingAllLayout">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+            android:id="@+id/swEnableTopLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:switch_button_sub_title="@string/is_back_to_top_level_enable_when_failed_guess"
+            app:switch_button_title="@string/back_to_top_level" />
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SwitchButton
+            android:id="@+id/swEnableShowDefinition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:switch_button_sub_title="@string/show_the_definition_and_synonym"
+            app:switch_button_title="@string/definition_and_synonym" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:background="@color/white_darker"
+            android:orientation="horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeleteLeitner"
+            style="@style/primary_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="@dimen/paddingAllLayout"
+            android:backgroundTint="@color/transparent"
+            android:foreground="@drawable/ripple_circle"
+            android:gravity="start|center_vertical"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/delete_leitner"
+            android:textAllCaps="false"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            android:typeface="monospace"
+            app:strokeColor="@color/transparent"
+            tools:ignore="UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/medium_font_family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/automatic_backup_path"
+            android:textSize="12sp" />
+    </LinearLayout>
+</layout>

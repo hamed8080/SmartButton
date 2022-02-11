@@ -1,0 +1,89 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.user.register.RegisterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/registerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            app:action_bar_title="@string/register"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tfEmailRegister"
+            style="@style/simple_input_layout"
+            android:layout_marginLeft="@dimen/paddingAllLayout3X"
+            android:layout_marginTop="@dimen/paddingAllLayout3X"
+            android:layout_marginRight="@dimen/paddingAllLayout3X"
+            android:nextFocusUp="@id/btnRequestResetCode"
+            app:layout_constraintTop_toBottomOf="@+id/actionBar"
+            app:layout_constraintVertical_bias="0.3"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/edit_text_inside_input_layout"
+                app:textInputEdiTextWatcher="@{vm.emailTextWatcher}"
+                android:hint="@string/enterEmail" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tfPasswordRegister"
+            style="@style/simple_input_layout"
+            android:layout_marginLeft="@dimen/paddingAllLayout3X"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:layout_marginRight="@dimen/paddingAllLayout3X"
+            android:nextFocusUp="@id/btnRequestResetCode"
+            app:layout_constraintTop_toBottomOf="@+id/tfEmailRegister"
+            app:layout_constraintVertical_bias="0.3"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/edit_text_inside_input_layout"
+                app:textInputEdiTextWatcher="@{vm.passwordTextWatcher}"
+                android:hint="@string/enter_password" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tfRepeatPasswordRegister"
+            style="@style/simple_input_layout"
+            android:layout_marginLeft="@dimen/paddingAllLayout3X"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:layout_marginRight="@dimen/paddingAllLayout3X"
+            android:nextFocusUp="@id/btnRequestResetCode"
+            app:hintEnabled="false"
+            app:layout_constraintTop_toBottomOf="@+id/tfPasswordRegister"
+            app:layout_constraintVertical_bias="0.3"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="30dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/edit_text_inside_input_layout"
+                app:textInputEdiTextWatcher="@{vm.repeatPasswordTextWatcher}"
+                android:hint="@string/confirm_password" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegister"
+            style="@style/primary_button"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:text="@string/register"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tfRepeatPasswordRegister" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/btnRequestPermission"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_request_accessibility" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRequestPermission"
+            style="@style/primary_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="@dimen/paddingAllLayout"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/request_permission_accessibility"
+            android:textAllCaps="false"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="SmallSp,UnusedAttribute" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

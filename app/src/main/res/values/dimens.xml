@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="paddingAllLayout">10dip</dimen>
+    <dimen name="paddingAllLayout2X">20dip</dimen>
+    <dimen name="paddingAllLayout3X">30dip</dimen>
+    <dimen name="paddingLayout">5dip</dimen>
+    <dimen name="simpleTextViewSizeSmall">12sp</dimen>
+    <dimen name="simpleTextViewSize">14sp</dimen>
+    <dimen name="HeadingTextViewSize">15sp</dimen>
+</resources>

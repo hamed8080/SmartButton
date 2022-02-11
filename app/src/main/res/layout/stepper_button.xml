@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr"
+        tools:ignore="UnusedAttribute">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.StepperView
+            android:id="@+id/stepper"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginTop="@dimen/paddingAllLayout2X"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnIncrease"
+            style="@style/heavy_font_family"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingLeft="8dp"
+            android:text="+"
+            android:textColor="@color/blue"
+            android:foreground="@drawable/ripple_circle"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/stepper"
+            app:layout_constraintEnd_toEndOf="@+id/stepper"
+            tools:ignore="HardcodedText,RtlSymmetry" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnDecrease"
+            style="@style/heavy_font_family"
+            android:foreground="@drawable/ripple_circle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:paddingEnd="8dp"
+            android:paddingRight="8dp"
+            android:text="-"
+            android:textColor="@color/blue"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/stepper"
+            app:layout_constraintStart_toStartOf="@+id/stepper"
+            tools:ignore="HardcodedText,RtlSymmetry" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            style="@style/heavy_font_family"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/paddingAllLayout"
+            android:textColor="@color/white_darker_3X"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            app:layout_constraintTop_toBottomOf="@+id/stepper"
+            app:layout_constraintWidth_max="wrap"
+            tools:text="Title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

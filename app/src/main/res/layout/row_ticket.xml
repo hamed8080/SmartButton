@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="ir.mobitrain.applicationcore.helper.Converters" />
+
+        <import type="ir.amozkade.advancedAsisstiveTouche.mvvm.tickets.model.TicketStatus" />
+
+        <variable
+            name="ticket"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.tickets.model.Ticket" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        tools:ignore="UnusedAttribute">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cpStatus"
+            setChipStyle="@{ticket.ticketStatus}"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            android:layout_marginRight="@dimen/paddingAllLayout"
+            android:clickable="false"
+            android:text="@{ticket.ticketStatusString(context)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="hello" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtTitle"
+            style="@style/bold_font_family"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            android:gravity="start"
+            android:text="@{ticket.title}"
+            android:textColor="@color/black_text_bold_color"
+            app:layout_constraintEnd_toStartOf="@+id/cpStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="test long test" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/paddingAllLayout"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            android:text="@{Converters.convertToShamsi(ticket.startDate)}"
+            android:textColor="@color/white_darker_2X"
+            style="@style/medium_font_family"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toStartOf="@+id/cpStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            tools:ignore="SmallSp"
+            tools:text="2020/16/03 14:22" />
+
+        <LinearLayout
+            style="@style/dividerInMain"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

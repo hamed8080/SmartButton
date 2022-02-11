@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+       >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtOffline"
+            android:layout_width="wrap_content"
+            android:text="@string/offline"
+            style="@style/heavy_font_family"
+            android:textSize="24sp"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="@dimen/paddingAllLayout"
+            android:layout_height="wrap_content"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/centerGuideline"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SquareButtonWithTitle
+            android:id="@+id/btnDefault"
+            style="@style/left_grid_item"
+            android:layout_height="164dp"
+            app:layout_constraintEnd_toStartOf="@+id/centerGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtOffline"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            app:square_icon="@drawable/ic_theme_store"
+            app:square_title="@string/default_theme" />
+
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SquareButtonWithTitle
+            android:id="@+id/btnOfflineButtons"
+            style="@style/right_grid_item"
+            android:layout_height="164dp"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            app:square_icon="@drawable/ic_colored_app_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/centerGuideline"
+            app:layout_constraintTop_toTopOf="@+id/txtOffline"
+            app:square_title="@string/offline_buttons" />
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SquareButtonWithTitle
+            android:id="@+id/btnOfflineBackgrounds"
+            style="@style/left_grid_item"
+            android:layout_height="164dp"
+            app:square_icon="@drawable/ic_background"
+            app:layout_constraintTop_toBottomOf="@+id/btnDefault"
+            app:layout_constraintEnd_toStartOf="@+id/centerGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/paddingAllLayout2X"
+            app:square_title="@string/offline_backgrounds" />
+
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.SquareButtonWithTitle
+            android:id="@+id/btnOfflineIconsPanel"
+            style="@style/right_grid_item"
+            android:layout_height="164dp"
+            app:square_icon="@drawable/ic_fonts"
+            app:layout_constraintTop_toBottomOf="@+id/btnOfflineButtons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/centerGuideline"
+            android:layout_marginBottom="@dimen/paddingAllLayout2X"
+            app:square_title="@string/offline_icon_fonts" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

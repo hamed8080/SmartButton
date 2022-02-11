@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <Button
+        android:id="@+id/stopRecording"
+        style="@style/heavy_font_family"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:minWidth="96dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/paddingAllLayout"
+        android:layout_marginLeft="@dimen/paddingAllLayout"
+        android:background="@drawable/progress_bar_container"
+        android:backgroundTint="@color/red"
+        android:elevation="0dp"
+        android:text="@string/stop_recording"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        tools:ignore="UnusedAttribute" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        style="@style/heavy_font_family"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/paddingAllLayout"
+        android:layout_marginLeft="@dimen/paddingAllLayout"
+        android:layout_toEndOf="@+id/stopRecording"
+        android:layout_toRightOf="@+id/stopRecording"
+        android:gravity="center"
+        android:textColor="@color/red"
+        tools:text="00:00" />
+</RelativeLayout>

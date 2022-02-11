@@ -1,0 +1,12 @@
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackAllMask"
+    android:accessibilityFlags="flagRequestFilterKeyEvents"
+    android:canRequestTouchExplorationMode="true"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/app_name"
+    android:notificationTimeout="100"
+    android:settingsActivity="ir.amozkade.advancedAsisstiveTouche.mvvm.main.MainActivity"
+    android:canRequestFilterKeyEvents="true"
+    tools:ignore="UnusedAttribute" />

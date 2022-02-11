@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action_bar_title="@string/leitner_box"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="@dimen/paddingAllLayout3X"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionBar"
+            app:spanCount="2"
+            tools:listitem="@layout/row_leitner" />
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.CTextFloatingActionButton
+            android:id="@+id/btnOpenActionMenu"
+            style="@style/action_floating_button"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_margin="@dimen/paddingAllLayout"
+            android:backgroundTint="@color/white"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:text="@string/f_plus"
+            app:text_color="@color/blue"
+            app:text_size="32sp"
+            tools:ignore="UnusedAttribute" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/actionMenu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:animateLayoutChanges="true"
+            android:background="#6FF6F6F6"
+            android:elevation="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/actionBar"
+            tools:ignore="UnusedAttribute"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtBtnManageDictionaries"
+                style="@style/action_floating_button_front_text"
+                android:text="@string/manage_dictionaries"
+                app:layout_constraintBottom_toBottomOf="@+id/btnManageDictionaries"
+                app:layout_constraintEnd_toStartOf="@+id/btnManageDictionaries"
+                app:layout_constraintTop_toTopOf="@+id/btnManageDictionaries" />
+
+            <ir.amozkade.advancedAsisstiveTouche.helper.customviews.CTextFloatingActionButton
+                android:id="@+id/btnManageDictionaries"
+                style="@style/action_floating_button"
+                app:layout_constraintBottom_toTopOf="@+id/btnAddFromSource"
+                app:layout_constraintEnd_toEndOf="@+id/btnMinus"
+                app:layout_constraintStart_toStartOf="@+id/btnMinus"
+                app:text="@string/f_database" />
+
+
+            <ir.amozkade.advancedAsisstiveTouche.helper.customviews.CTextFloatingActionButton
+                android:id="@+id/btnAddFromSource"
+                style="@style/action_floating_button"
+                app:layout_constraintBottom_toTopOf="@+id/btnAddLeitner"
+                app:layout_constraintEnd_toEndOf="@+id/btnMinus"
+                app:layout_constraintStart_toStartOf="@+id/btnMinus"
+                app:text="@string/f_download" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtBtnAddFromSource"
+                style="@style/action_floating_button_front_text"
+                android:text="@string/download_dictionary"
+                app:layout_constraintBottom_toBottomOf="@+id/btnAddFromSource"
+                app:layout_constraintEnd_toStartOf="@+id/btnAddFromSource"
+                app:layout_constraintTop_toTopOf="@+id/btnAddFromSource" />
+
+            <ir.amozkade.advancedAsisstiveTouche.helper.customviews.CTextFloatingActionButton
+                android:id="@+id/btnAddLeitner"
+                style="@style/action_floating_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/btnMinus"
+                app:layout_constraintEnd_toEndOf="@+id/btnMinus"
+                app:layout_constraintStart_toStartOf="@+id/btnMinus"
+                app:text="@string/f_category" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtBtnAddLeitner"
+                style="@style/action_floating_button_front_text"
+                android:text="@string/add_new_leitner"
+                app:layout_constraintBottom_toBottomOf="@+id/btnAddLeitner"
+                app:layout_constraintEnd_toStartOf="@+id/btnAddLeitner"
+                app:layout_constraintTop_toTopOf="@+id/btnAddLeitner" />
+
+            <ir.amozkade.advancedAsisstiveTouche.helper.customviews.CTextFloatingActionButton
+                android:id="@+id/btnMinus"
+                style="@style/action_floating_button"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_margin="@dimen/paddingAllLayout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:text="@string/f_close"
+                app:text_color="@color/blue"
+                app:text_size="32sp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

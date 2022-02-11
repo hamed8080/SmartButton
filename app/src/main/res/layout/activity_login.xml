@@ -1,0 +1,186 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.user.login.LoginViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:layout_marginBottom="64dp"
+            android:minHeight="600dp">
+
+            <LinearLayout
+                android:id="@+id/parentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clipToPadding="false"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+                    android:id="@+id/actionBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:action_bar_title="@string/login" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tfEmailLogin"
+                    style="@style/simple_input_layout"
+                    android:layout_marginLeft="@dimen/paddingAllLayout3X"
+                    android:layout_marginTop="@dimen/paddingAllLayout3X"
+                    android:layout_marginRight="@dimen/paddingAllLayout3X"
+                    android:nextFocusUp="@id/tfPasswordLogin"
+                    app:layout_constraintTop_toBottomOf="@+id/appBarLayoutTop"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="30dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/edit_text_inside_input_layout"
+                        app:textInputEdiTextWatcher="@{vm.emailTextWatcher}"
+                        android:inputType="textEmailAddress"
+                        android:hint="@string/enterEmail" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tfPasswordLogin"
+                    style="@style/simple_input_layout"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:layout_marginLeft="@dimen/paddingAllLayout3X"
+                    android:layout_marginRight="@dimen/paddingAllLayout3X"
+                    android:nextFocusUp="@id/btnLogin"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="30dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/edit_text_inside_input_layout"
+                        app:textInputEdiTextWatcher="@{vm.userPassTextWatcher}"
+                        android:inputType="textPassword"
+                        android:hint="@string/enter_password" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogin"
+                    style="@style/primary_button"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:nextFocusUp="@id/btnOpenRegister"
+                    android:text="@string/login" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOpenRegister"
+                    style="@style/primary_button"
+                    android:layout_marginTop="@dimen/paddingAllLayout"
+                    android:nextFocusUp="@id/btnForgotPassword"
+                    android:text="@string/register"
+                    tools:ignore="UnusedAttribute" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtForgotPassword"
+                        style="@style/medium_font_family"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:nextFocusUp="@id/btnGoogleSignIn"
+                        android:text="@string/forgotPasswordQuestion"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white_darker_3X"
+                        android:textSize="12sp"
+                        android:typeface="monospace"
+                        tools:ignore="UnusedAttribute" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnForgotPassword"
+                        style="@style/text_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|start"
+                        android:text="@string/restore"
+                        android:textAllCaps="false"
+                        android:textColor="@color/blue" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="@dimen/paddingAllLayout"
+                    android:layout_marginRight="@dimen/paddingAllLayout"
+                    android:layout_marginStart="@dimen/paddingAllLayout"
+                    android:layout_marginLeft="@dimen/paddingAllLayout"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSMSSignIn"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/transparent"
+                        android:backgroundTint="@color/transparent"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:icon="@drawable/ic_sms"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="36dp"
+                        app:backgroundTint="@color/white_darker"
+                        app:iconTint="@null"
+                        tools:ignore="UnusedAttribute" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGoogleSignIn"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@color/transparent"
+                        android:backgroundTint="@color/transparent"
+                        android:insetLeft="0dp"
+                        android:insetTop="0dp"
+                        app:backgroundTint="@color/white_darker"
+                        android:insetRight="0dp"
+                        android:insetBottom="0dp"
+                        app:icon="@drawable/ic_google_login"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconSize="36dp"
+                        app:iconTint="@null"
+                        tools:ignore="UnusedAttribute" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
+

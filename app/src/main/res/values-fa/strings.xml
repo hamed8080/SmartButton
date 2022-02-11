@@ -1,0 +1,332 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">دکمه هوشمند</string>
+
+    <string name="writeExternalPermission">برای دریافت به روز رسانی نرم افزار باید مجوز نوشتن بر روی حافظه را به برنامه بدهید</string>
+
+    <string name="cancel">بستن</string>
+    <string name="FirstLoginToApp">ابتدا وارد شوید</string>
+    <string name="update_app">به روز رسانی</string>
+    <string name="search">جستجو</string>
+    <string name="categories">دسته بندی ها</string>
+    <string name="failed_connect">اتصال به سرور انجام نشد بعدا تلاش کنید.</string>
+    <string name="failed_connect_title">مشکل در اتصال به سرور</string>
+    <string name="timeout_title">زمان طولانی اتصال</string>
+    <string name="timeout">زمان برقراری ارتباط با سرور طولانی شد .مجددآ تلاش کنید</string>
+
+    <string name="language">انتخاب زبان</string>
+    <string name="unauthorized_subtitle">جلسه منقضی شده است . لطفاً مجددا وارد سیستم شوید.</string>
+    <string name="unauthorized_title">جلسه منقضی شده است</string>
+
+    <string name="update">به روز رسانی</string>
+    <string name="filter_title">فیلتر</string>
+    <string name="logger">Logger</string>
+    <string name="delete_all">حذف همه</string>
+
+    <!--  Dictionary  -->
+    <string name="add_new_leitner">افزودن جعبه لایتنر جدید</string>
+    <string name="enter_leitner_name">نام جعبه لایتنر را وارد کنید</string>
+    <string name="leitner_exist">جعبه لایتنر موجود است!</string>
+    <string name="enter_different_name">نام متفاوتی برای جعبه لایتنر انتخاب نمایید</string>
+    <string name="leitner_name_cant_null">نام جعبه لایتنر نمی تواند خالی باشد</string>
+    <string name="delete_leitner">حذف جعبه لایتنر</string>
+    <string name="delete">حذف</string>
+    <string name="delete_leitner_submit">آیا شما مطمين هستید می خواهید حذف کنید؟</string>
+    <string name="delete_leitner_subtitle">اگر شما جعبه لایتنر را حذف کنید تمام دیتای داخل آن از قبیل کلمات نیز حذف خواهند شد.</string>
+    <string name="level_name">"مرحله %s "</string>
+    <string name="enter_question">سوال خود را وارد کنید</string>
+    <string name="enter_answer">جواب خود را وارد کنید</string>
+    <string name="save">ذخیره</string>
+    <string name="answer_cant_null">جواب نمی تواند خالی باشد</string>
+    <string name="question_cant_null">سوال نمی تواند خالی باشد</string>
+    <string name="not_found_any_question_title">هیچ موردی در این مرحله موجود نیست</string>
+    <string name="not_found_any_question_subtitle">هیچ موردی در این مرحله پیدا نشد . بیشتر تلاش کنید تا سوالات به مراحل بالاتر برسند.</string>
+    <string name="close">بستن</string>
+    <string name="review_finished_title">تمام سوالات را مشاهده کردید</string>
+    <string name="review_finished_subtitle">تمام سوالات را مشاهده کردید شما می توانید مراحل دیگر را انجام دهید.</string>
+    <string name="day">روز</string>
+    <string name="delete_question_title">حذف سوال؟</string>
+    <string name="delete_question_subtitle">آیا شما مطمئن هستید می خواهید این سوال را پاک کنید؟</string>
+
+
+    <string name="permission_denied_title">عدم دسترسی</string>
+    <string name="permission_overlay_denied_subtitle">لطفاً دسترسی کشیدن بر روی برنامه های دیگر را فعال کنید.(فعال بودن بر روی سایر بر نا مه ها)</string>
+    <string name="permission_admin_subtitle" tools:ignore="TypographyEllipsis">دسترسی مدیریت وسیله برای قفل صفحه ، ریبوت و... لازم است‌!</string>
+    <string name="enable_button">فعال سازی دکمه</string>
+    <string name="disable_button">غیر فعال سازی دکمه</string>
+    <string name="remove_app">حذف کمه هوشمند</string>
+    <string name="set_brightness">تنظیم روشنایی</string>
+    <string name="tap_me_to_enable">بر روی من کلیک کنید تا فعال بشوم</string>
+    <string name="stay_until_you_enable_me">من در اینجا خواهم ماند تا زمانی که بر روی من کلیک کنید</string>
+    <string name="request_permission_accessibility">لطفاً دسترسی Accessibility را مانند بالا در صفحه بعد روشن کنید.</string>
+    <string name="edit_button_positions">موقعیت دکمه ها</string>
+    <string name="pick_shortcut">انتخاب میانبر های سیستمی</string>
+    <string name="pick_app">انتخاب برنامه</string>
+    <string name="pick_contact">انتخاب شماره تلفن</string>
+    <string name="disable">غیر فعال کردن</string>
+    <string name="select_action">انتخاب نوع عملیات</string>
+    <string name="preference">شخصی سازی</string>
+    <string name="button_preference">تنظیمات دکمه</string>
+    <string name="alpha_after_three_second">هنگامی که این گزینه روشن باشد دکمه بعد از ۳ ثانیه کم رنگ خواهد شد</string>
+    <string name="automatic_moved_to_edge">هنگامی که این گزینه روشن باشد دکمه به کناره های صفحه نمایش کشیده خواهد شد</string>
+    <string name="button_size">سایز دکمه</string>
+    <string name="speed_size">نمایش دهنده سرعت</string>
+    <string name="button_color">رنگ دکمه</string>
+    <string name="panel_preference">تنظیمات پنل</string>
+    <string name="panel_color">رنگ پنل</string>
+    <string name="panel_width_percent">پهنای پنل</string>
+    <string name="panel_button_sizes">سایز دکمه های پنل</string>
+    <string name="panel_button_text_size">سایز متن دکمه ها</string>
+    <string name="show_button_speed">هنگامی که این گزینه روشن باشد سرعت اینترنت شما بر روی دکمه نمایش داده خواهد شد</string>
+    <string name="delete_all_actions_title">حذف تمامی دکمه ها؟</string>
+    <string name="delete_actions_subtitle">آیا شما ممطئن هستید می خواهید تمامی دکمه های داخل پنل را پاک کنید؟</string>
+    <string name="camera_permission_title">دسترسی دوربین</string>
+    <string name="camera_permission_subtitle" tools:ignore="TypographyEllipsis">دسترسی دوربین برای قابلیت هایی نظیر روشن کردن فلش دوربین و ... نیاز  است.</string>
+    <string name="delete_app_subtitle">آیا شما مطمئن هستید می خواهید اپلیکیشن را پاک کنید؟</string>
+    <string name="theme_store">فروشگاه تم</string>
+    <string name="action_list_is_empty_please_add_new_item">لیست دکمه ها خالی می باشد \n لطفاً یک آیتم به لیست اضافه کنید.</string>
+    <string name="apply">اعمال تغییر</string>
+    <string name="offline_buttons">دکمه ها</string>
+    <string name="offline_backgrounds">پشت صفحه ها</string>
+    <string name="offline_icon_fonts">داخل پنل</string>
+    <string name="default_theme">تم پیش فرض</string>
+    <string name="default_theme_subtitle">آیا شما مطمين هستید می خواهید تم پیش فرض انتخاب شود ؟</string>
+    <string name="update_to_this_version_is_mandatory">آپدیت به نسخه جدید اجباری می باشد</string>
+    <string name="call_permission_subtitle">دسترسی تماس نیاز می باشد.</string>
+    <string name="double_tap_action">دو بار کلیک</string>
+    <string name="single_tap_action">یک بار کلیک</string>
+    <string name="hold_action">نگه داشتن</string>
+    <string name="left_menu_title">هنگامی که این گزینه روشن باشد پنل به شکل تک سطری و در کنار صفحه نمایش چسبده خواهد شد</string>
+    <string name="tap_to_request_admin_title">برای گرفتن دسترسی مدیر سیستم کلیک کنید</string>
+    <string name="login_to_market">به نظر می رسد شما وارد %s نشده اید.</string>
+    <string name="panel_buttons_color">رنگ دکمه های داخل پنل</string>
+    <string name="not_compatible">عدم سازگاری!</string>
+    <string name="power_menu_compatible_with_android_five">منوی پاور گوشی با اندروید ۵ به بالا سازگار است</string>
+    <string name="tap_to_request_enable_disturb_mode_title">Disturb نیاز است!</string>
+    <string name="tap_to_request_enable_disturb_mode_subtitle">برای سایلنت کردن گوشی باید دسترسی Disturb را به اپ بدهید</string>
+    <string name="call_permission_title">برای دسترسی تماس کلیک کنید!</string>
+
+
+    <!--    Buttons    -->
+    <string name="open_window">باز کردن پنجره</string>
+    <string name="hide">مخفی کردن</string>
+    <string name="volume_down">کم کردن صدا</string>
+    <string name="volume_up">زیاد کردن صدا</string>
+    <string name="screenshot">عکس گرفتن از صفحه</string>
+    <string name="mute">سایلنت</string>
+    <string name="wifi">وایفای</string>
+    <string name="bluetooth">بلوتوث</string>
+    <string name="multitasking">مولتی تسکینگ</string>
+    <string name="home">خانه</string>
+    <string name="brightness">روشنایی صفحه</string>
+    <string name="torch">چراغ قوه</string>
+    <string name="lock_rotate">قفل چرخش</string>
+    <string name="back">برگشت</string>
+    <string name="lock">قفل</string>
+    <string name="volume">صدا</string>
+    <string name="sound_setting">تنظیمات صدا</string>
+    <string name="operator_setting">تنظیمات اپراتور</string>
+    <string name="gps_setting">تنظیمات gps</string>
+    <string name="power">روشن و خاموش کردن</string>
+    <string name="apps">برنامه ها</string>
+    <string name="notification">نوتیفیکیشن</string>
+    <string name="permissions">دسترسی ها</string>
+    <string name="disable_animation">غیر فعال سازی انیمیشن باز و بسته شدن پنل</string>
+    <string name="pager">وقتی این گزینه روشن است ۹ دکمه در هر صفحه نمایش داده خواهد شد</string>
+    <string name="pager_and_edge_cant_enable_same_time">حالت صفحه بندی و پنل کناری صفحه نمی توانند همزمان فعال باشند</string>
+    <string name="warning">هشدار</string>
+    <string name="screenshot_saved_at"> اسکرین شات جدید شما در مسیر %s ذخیره شد.</string>
+    <string name="sorry">متاسفم</string>
+    <string name="reboot">راه اندازی مجدد</string>
+    <string name="root_needed">نیازمند روت</string>
+    <string name="clipboard">کلیپ بورد</string>
+    <string name="translator">مترجم</string>
+    <string name="paste_your_text_here">کلیپ بورد خود را در اینجا وارد کنید</string>
+    <string name="add_to_clipboard">افزودن از ویراشگر</string>
+    <string name="add_from_clipboard">افزودن از کلیپ بورد</string>
+    <string name="add_more_clipboard_need_pro">افزودن بیش از ۲ مورد به کلیپ بورد نیازمند نسخه Pro می باشد</string>
+    <string name="tap_to_clipboard">بر روی آیتم مورد نظر کلیک کنید تا به Clipboard اضافه شود</string>
+    <string name="animate_marquee">وقتی این گزینه روشن باشد اگر متن های داخل پنل بزرگتر از پنها باشند به صورت انیمیشن حرکت می کنند</string>
+    <string name="screen_recording">ضبط صفحه</string>
+    <!--    Buttons    -->
+
+    <!--  Bug Report  -->
+    <string name="first_name">نام</string>
+    <string name="phone_number">شماره تلفن</string>
+    <string name="type_ticket_title">عنوان تیکت را بنویسید</string>
+    <string name="ticket">تیکت</string>
+    <string name="success_upload_report">گزارش با موفقیت آپلود شد</string>
+    <string name="rate_the_app">لطفاً برای پیشرفت بهتر برنامه امتیاز یا نظر دهید</string>
+    <string name="review">ثبت بازخورد</string>
+    <string name="rate_now">ثبت امتیاز</string>
+    <string name="do_not_ask_rate">دیگه نپرس</string>
+    <string name="last_name">نام خانوادگی</string>
+    <!--  Bug Report  -->
+
+    <!--  Translate  -->
+    <string name="enter_your_text_to_translate">متن خود را برای ترجمه وارد کنید</string>
+    <string name="from">از</string>
+    <string name="to">به</string>
+    <string name="downloading_translation">در حال دانلود زبان مورد نظر برای ترجمه لطفاً چند دقیقه منتظر بمانید.</string>
+    <!--  Translate  -->
+
+    <!-- Login -->
+    <string name="enterEmail">ایمیل را وارد کنید</string>
+    <string name="password_length_must_grater_than_six">تعداد کاراکتر های پسورد باید بیشتر از ۶ حرف باشد</string>
+    <string name="enter_password">رمز عبور را وارد کنید</string>
+    <string name="login">ورود</string>
+    <string name="register">ثبت نام</string>
+    <string name="forgotPasswordQuestion">رمز عبور خود را فراموش کرده اید؟</string>
+    <string name="orLoginWith">یا ورود با</string>
+    <string name="loginWithGoogle">ورود با اکانت گوگل</string>
+    <string name="login_with_sms">ورود با اس ام اس</string>
+    <string name="first_login_to_system">ابتدا وارد اکانت خود شوید</string>
+    <!-- Login -->
+
+    <!-- Register -->
+    <string name="validate">اعتبار سنجی</string>
+    <string name="incorrect_repeat_pass">تکرار رمز عبور یکسان نیست</string>
+    <string name="confirm_password">رمز خود را مجدد وارد کنید</string>
+    <string name="order_not_found">سفارش پیدا نشد</string>
+    <string name="user_registered_success">کاربر با موفقیت ثبت شد</string>
+    <string name="user_with_this_email_exist">کاربری با این ایمیل موجود است</string>
+    <string name="email_not_valid">ایمیل معتبر نیست</string>
+    <string name="user_pass_incorrect">نام کاربری یا رمز عبور اشتباه می باشد</string>
+    <string name="incorrect_sms_code">کد وارد شده اشتباه است</string>
+    <string name="limit_sms_request">شما بیش از ۱۰ بار در یک روز درخواست ارسال کرده اید</string>
+    <string name="incorrect_email_code">کد ایمیل اشتباه است</string>
+    <!-- Register -->
+
+    <!-- Forgot Password -->
+    <string name="enter_email_verify_code">کد ارسال شده به ایمیل را وارد کنید</string>
+    <string name="forgotPassword">فراموشی رمز عبور</string>
+    <string name="forgot_password_confirmation">تایید ریست پسورد</string>
+    <string name="enter_new_password">پسورد جدید را وارد کنید</string>
+    <string name="enter_new_password_repeat">پسورد جدید را تکرار کنید</string>
+    <string name="password_not_match">پسورد ها یکسان نیستند</string>
+    <string name="reset_password_request">درخواست ریست پسورد</string>
+    <string name="reset_password">ریست پسورد</string>
+    <string name="reset_password_successes">پسورد شما با موفقیت تغییر یافت.</string>
+    <!-- Forgot Password -->
+
+    <!-- Login With SMS-->
+    <string name="remaining_time">زمان باقیمانده</string>
+    <string name="enter_phone_number">شماره موبایل خود را وارد کنید</string>
+    <string name="request_sms_code">درخواست کد ورود</string>
+    <string name="verify_code">تایید کد</string>
+    <!-- Login With SMS-->
+    <string name="version">نسخه</string>
+    <string name="logout">خروج</string>
+    <string name="email">ایمیل</string>
+    <string name="last_login_date">تاریخ آخرین ورود</string>
+    <string name="profile">پروفایل</string>
+    <string name="user_name">نام کاربری</string>
+    <string name="install_fail">نصب نشد</string>
+    <string name="manual_install">نصب دستی اپ از مسیر %s</string>
+    <string name="delete_all_notifs_subtitle">آیا شما مایل هستید تمام اعلانات پاک شوند؟</string>
+    <string name="delete_all_notifications_title">حذف تمام اعلانات</string>
+    <string name="start">شروع</string>
+    <string name="write_a_message">پیام خود را بنویسید</string>
+    <string name="in_progress">در حال پیگیری</string>
+    <string name="solved">حل شده</string>
+    <string name="enable_disable_subtitle">فعال سازی و غیر فعال سازی دکمه.</string>
+    <string name="auto_transparency">کم رنگ شدن خودکار</string>
+    <string name="stick_to_edge">چسبیدن به کنار صفحه</string>
+    <string name="internet_speed">سرعت اینترنت</string>
+    <string name="edge_panel">چسبیدن پنل به کنار صفحه</string>
+    <string name="animation_open_close">انیمیشن باز و بسته شدن</string>
+    <string name="paging_panel">پنل صفحه ای</string>
+    <string name="animate_text_icon_panel">انیمیشن متن داخل پنل</string>
+    <string name="button_selected_color">رنگ انتخاب شده دکمه</string>
+    <string name="selected_color_for_panel_icons">رنگ انتخاب شده برای آیکون های داخل پنل.</string>
+    <string name="panel_selected_color">رنگ انتخاب شده برای پشت صفحه پنل.</string>
+    <string name="edit_position_subtitle">در این قسمت شما می توانید مکان دکمه ها و نوع اکشن را انتخاب کنید.</string>
+    <string name="deactivate_device_admin">حذف کردن برنامه نیاز به غیر فعال سازی Device Admin دارد.</string>
+    <string name="restore">بازیابی</string>
+    <string name="notification_empty">شما پیام جدیدی ندارید. \n تمام پیام ها در این جا ذخیره می شوند.</string>
+    <string name="empty_buttons">برای اضافه کردن آیتم جدید به لیست دکمه + را فشار دهید.</string>
+    <string name="empty_ticket">برای شروع یک گفتگو جدید با تیم پشتیبانی دکمه + را فشار دهید.</string>
+    <string name="offline">آفلاین</string>
+    <string name="circular_button">دکمه دایره ای</string>
+    <string name="circular_subtitle">با فعال سازی این قابلیت دکمه های داخل پنل  به صورت دایره ای نمایش داده خواهد شد.</string>
+    <string name="export_database">گرفتن نسخه پشتیبان</string>
+    <string name="export_subtitle">شما می توانید از تمام داده های کلیپ بورد و جعبه لایتنر خود نسخه پشتیبان تهیه کنید.</string>
+    <string name="import_subtitle">وارد کردن فایل پشتیبان گرفته شده برای داده های کلیپ بورد و جعبه لایتنر.</string>
+    <string name="import_database">وارد کردن فایل دیتابیس</string>
+    <string name="export_database_path">نسخه پشتیبان در مسیر  %s قرار داده شد.</string>
+    <string name="import_database_path">بکاپ با موفقیت برگشت داده شد.لطفآ برنامه را ببندید و دوباره باز کنید.</string>
+    <string name="show_button_quick_setting">نمایش دکمه</string>
+    <string name="hide_button_quick_setting">مخفی کردن</string>
+    <string name="on">روشن</string>
+    <string name="off">خاموش</string>
+    <string name="request_permission_accessibility_notif_title">فعال کردن Accessibility</string>
+    <string name="request_permission_accessibility_notif_sub_title">برای کارهایی مانند بازگشت ، خانه ، چند وظیفگی و غیره به این مجوز احتیاج دارید</string>
+    <string name="stop_recording">توقف</string>
+    <string name="screen_recording_path">فایل در مسیر زیر ذخیره شد:%s</string>
+    <string name="leitner_box">جعبه لایتنر</string>
+    <string name="leitner_box_sub_title">شما در این قسمت می توانید جعبه لایتنر خود را مدیریت کنید.</string>
+    <string name="add_question">اضافه کردن سوال</string>
+    <string name="add_or_edit_leitner">افزودن یا ویرایش جعبه لایتنر</string>
+    <string name="reviewable">قابل دسترسی:‌ </string>
+    <string name="questions">سوالات:</string>
+    <string name="tap_to_show_answer">نمایش جواب</string>
+    <string name="guess">حدس زدم</string>
+    <string name="fail">نمی دونم</string>
+    <string name="definitions">تعاریف</string>
+    <string name="synonyms">مترادف</string>
+    <string name="total">مجموع%1$s / %2$s</string>
+    <string name="failed">اشتباه: </string>
+    <string name="correct">صحیح: </string>
+    <string name="manual_answer">جواب دستی</string>
+    <string name="pronunciation">تلفظ: %1$s</string>
+    <string name="noun">اسم</string>
+    <string name="verb">فعل</string>
+    <string name="adjective">صفت</string>
+    <string name="adverb">قید</string>
+    <string name="unknown">ناشناخته</string>
+    <string name="download_dictionary">دانلود دیکشنری</string>
+    <string name="manage_dictionaries">مدیریت دیکشنری ها</string>
+    <string name="means">معانی</string>
+    <string name="import_all_dic_to_leitner">وارد کردن همه لغات به جعبه لایتنر؟</string>
+    <string name="import_to_db">Import</string>
+    <string name="edit_profile">ویرایش اطلاعات</string>
+    <string name="enter_current_password">رمز عبور فعلی را وارد کنید</string>
+    <string name="enter_first_name">نام را درست وارد کنید</string>
+    <string name="enter_family_name">نام خانوادگی را درست وارد کنید</string>
+    <string name="user_edited_successfully">اطلاعات کاربری شما با موفقیت ویرایش شد.</string>
+    <string name="total_question_count_in_leitner">تعداد کل سوالات : %s</string>
+    <string name="total_reviewable_count_in_leitner">قابل رویت: %s</string>
+    <string name="empty_ticket_message">لطفا فیلد پیام را پر کنید.</string>
+    <string name="download_failed_title">دانلود انجام نشد!</string>
+    <string name="download_failed_message">بنا به دلایلی دانلود انجام نشد :%s</string>
+    <string name="downloading_dictionary_status">در حال دانلود %d %%</string>
+    <string name="uncompressing">Uncompressing</string>
+    <string name="imported_successfully">همه موارد به جعبه لایتنر اضافه شد.</string>
+    <string name="exit_from_review_title">آیا شما مطمئن هستید می خواهید از review خارج شوید؟</string>
+    <string name="yes">بله</string>
+    <string name="is_back_to_top_level_enable_when_failed_guess">برگشت به مرحله اول در صورت حدس اشتباه</string>
+    <string name="back_to_top_level">برگشت به مرحه اول</string>
+    <string name="a_z">A-Z</string>
+    <string name="fav">مورد علاقه</string>
+    <string name="date">تاریخ</string>
+    <string name="level">مرحله</string>
+    <string name="edit">ویرایش</string>
+    <string name="theme_packs">تم کامل</string>
+    <string name="automatic_backup_path">فایل بکاپ اتوماتیک در مسیر زیر قرار دارد \n Android/data/ir.amozkade.advancedAsisstiveTouche </string>
+    <string name="write_guess_word">حدس کلمه را اینجا بنویسید</string>
+    <string name="check">بررسی</string>
+    <string name="reverse_review_level">حدس کلمات مرحله %s</string>
+    <string name="remaining_day">%s روز باقی مانده</string>
+    <string name="export_to_google_drive">بکاپ در Google Drive</string>
+    <string name="import_from_google_drive">وارد کردن بکاپ از Google Drive</string>
+    <string name="upload_to_drive_subtitle_button">گرفتن بکاپ از جعبه لایتنر در گوگل درایو</string>
+    <string name="import_from_google_drive_subtitle">وارد کردن بکاپ از گوگل درایو</string>
+    <string name="upload_google_drive_percent">%s%% آپلود شده به گوگل درایو</string>
+    <string name="show_the_definition_and_synonym">Show the Definition and Synonym</string>
+    <string name="definition_and_synonym">Definition and Synonym</string>
+    <string name="completed">تکمیل شده</string>
+    <string name="completed_count_in_leitner">لغات تکمیل شده: %s</string>
+    <string name="back_to_list">برگشت به لیست</string>
+    <string name="chose_leitner_to_move">انتخاب جعبه لایتنر برای انتقال</string>
+    <string name="move">انتقال</string>
+
+</resources>

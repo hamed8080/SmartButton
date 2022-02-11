@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/paddingAllLayout">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtQuestion"
+            style="@style/bold_font_family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_lighter_2X"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dog" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtPassedTime"
+            style="@style/medium_font_family"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:gravity="end"
+            android:textColor="@color/white_darker_2X"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAnswer"
+            tools:text="19/09/2019" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtAnswer"
+            style="@style/medium_font_family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="start"
+            android:textColor="@color/white_darker_3X"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/txtPassedTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtQuestion"
+            tools:ignore="SmallSp"
+            tools:text="translated test" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtLevel"
+            style="@style/medium_font_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:textColor="@color/primary_color"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/txtPassedTime"
+            app:layout_constraintTop_toBottomOf="@+id/txtPassedTime"
+            tools:ignore="SmallSp"
+            tools:text="Level 1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtCompleted"
+            style="@style/medium_font_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/paddingAllLayout2X"
+            android:layout_marginLeft="@dimen/paddingAllLayout2X"
+            android:gravity="end"
+            android:text="@string/completed"
+            android:textColor="@color/green_darker"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@id/txtLevel"
+            app:layout_constraintTop_toBottomOf="@+id/txtPassedTime"
+            tools:ignore="SmallSp"
+            tools:visibility="visible" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFav"
+            style="@style/icon_button"
+            android:layout_marginEnd="@dimen/paddingAllLayout"
+            android:layout_marginRight="@dimen/paddingAllLayout"
+            app:icon="@drawable/ic_baseline_star_outline_24"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="32dp"
+            app:iconTint="@color/primary_color"
+            app:layout_constraintBottom_toBottomOf="@id/menu_button"
+            app:layout_constraintEnd_toStartOf="@id/menu_button"
+            app:layout_constraintTop_toTopOf="@id/menu_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu_button"
+            style="@style/icon_button"
+            app:icon="@drawable/ic_more"
+            app:iconSize="32dp"
+            app:iconPadding="0dp"
+            app:iconGravity="textStart"
+            app:iconTint="@color/primary_color"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            app:layout_constraintTop_toBottomOf="@id/txtAnswer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

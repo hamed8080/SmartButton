@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtDefinition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="@dimen/paddingAllLayout"
+        android:textColor="@color/white_darker_2X"
+        android:textSize="12sp"
+        style="@style/bold_font_family"
+        tools:text="v accept gladly" />
+</layout>

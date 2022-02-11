@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvInPager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:background="@color/black_with_transparency"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:overScrollMode="never"
+        tools:listitem="@layout/row_button_in_panel"
+        app:spanCount="3" />
+</layout>

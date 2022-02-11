@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <item>
+        <layer-list>
+            <item android:height="120dp" android:width="100dp" tools:ignore="UnusedAttribute">
+                <shape>
+                    <corners android:radius="24dp" />
+                    <solid android:color="@color/primary_color" />
+                </shape>
+            </item>
+            <item android:height="8dp" android:top="38dp" tools:ignore="UnusedAttribute">
+                <shape>
+                    <size android:width="100dp" android:height="1dp" />
+                    <solid android:color="@color/white" />
+                </shape>
+            </item>
+            <item android:height="8dp" android:top="56dp" tools:ignore="UnusedAttribute">
+                <shape>
+                    <size android:width="100dp" android:height="1dp" />
+                    <solid android:color="@color/white" />
+                </shape>
+            </item>
+            <item android:height="8dp" android:top="72dp" tools:ignore="UnusedAttribute">
+                <shape>
+                    <size android:width="100dp" android:height="1dp" />
+                    <solid android:color="@color/white" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

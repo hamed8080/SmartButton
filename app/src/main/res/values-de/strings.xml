@@ -1,0 +1,332 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Smart Button</string>
+    <string name="writeExternalPermission">Zum Abrufen von Updates muss die Berechtigung zum Zugriff auf den Speicher erteilt werden</string>
+    <string name="cancel">Stornieren</string>
+    <string name="FirstLoginToApp">Melden Sie sich zuerst bei der Anwendung an</string>
+    <string name="update_app">Aktualisieren</string>
+    <string name="search">Suche</string>
+    <string name="categories">Kategorien</string>
+
+    <string name="failed_connect">Server konnte nicht verbunden werden. Bitte versuchen Sie es später erneut.</string>
+    <string name="failed_connect_title">Verbindung nicht möglich</string>
+    <string name="timeout_title">Zeit zum Verbinden</string>
+    <string name="timeout">Zeit zum Verbinden des Servers erreicht, versuchen Sie es erneut.</string>
+
+    <string name="language">Sprache</string>
+    <string name="unauthorized_subtitle">Anmeldesitzung abgelaufen.  Bitte melden Sie sich erneut an.</string>
+    <string name="unauthorized_title">Sitzung abgelaufen</string>
+
+    <string name="update">App aktualisieren</string>
+    <string name="filter_title">Filter</string>
+    <string name="logger">Logger</string>
+    <string name="delete_all">Alles löschen</string>
+
+
+    <!--  Dictionary  -->
+    <string name="add_new_leitner">Neue Leitner hinzufügen</string>
+    <string name="enter_leitner_name">Geben Sie den Leitner-Namen ein</string>
+    <string name="leitner_exist">Leitner existieren!</string>
+    <string name="enter_different_name">Geben Sie einen anderen Namen ein</string>
+    <string name="leitner_name_cant_null">Der Kategoriename darf nicht leer sein</string>
+    <string name="delete_leitner">Kategorie löschen</string>
+    <string name="delete">Löschen</string>
+    <string name="delete_leitner_submit">Bist du sicher, das du das löschen möchtest ?</string>
+    <string name="delete_leitner_subtitle">Wenn Sie Leitner entfernen, gehen alle Wörter in Leitner verloren</string>
+    <string name="level_name">"Niveau %s"</string>
+    <string name="enter_question">Frage eingeben</string>
+    <string name="enter_answer">Antwort eingeben</string>
+    <string name="save">speichern</string>
+    <string name="answer_cant_null">Die Antwort kann nicht null sein</string>
+    <string name="question_cant_null">Frage kann nicht null sein</string>
+    <string name="not_found_any_question_title">Kein Gegenstand in Levels</string>
+    <string name="not_found_any_question_subtitle">Keine Frage auf dieser Ebene gefunden. arbeite härter, um dich zu verbessern</string>
+    <string name="close">Schließen</string>
+    <string name="review_finished_title">Überprüfung der Fragen abgeschlossen</string>
+    <string name="review_finished_subtitle">Überprüfung aller Fragen abgeschlossen.  Sie können nach einem anderen Level suchen.</string>
+    <string name="day">Tag</string>
+    <string name="delete_question_title">Frage löschen?</string>
+    <string name="delete_question_subtitle">Sind Sie sicher, diese Frage zu löschen?</string>
+
+    <string name="permission_denied_title">Zugang verweigert</string>
+    <string name="permission_overlay_denied_subtitle">Bitte aktivieren Sie die Überlagerungsberechtigung</string>
+    <string name="permission_admin_subtitle" tools:ignore="TypographyEllipsis">Berechtigungsadministrationsgerät für Sperrbildschirm, Neustart, ...</string>
+    <string name="enable_button">Schaltfläche aktivieren</string>
+    <string name="disable_button">Schaltfläche deaktivieren</string>
+    <string name="remove_app">Smart Button App löschen</string>
+    <string name="set_brightness">Helligkeit einstellen</string>
+    <string name="tap_me_to_enable">Tippe auf mich, um es zu aktivieren</string>
+    <string name="stay_until_you_enable_me">Ich bleibe hier, um mich mit einem Fingertipp zu befähigen</string>
+    <string name="request_permission_accessibility">Bitte setzen Sie die Barrierefreiheit auf der nächsten Seite wie folgt ein</string>
+    <string name="edit_button_positions">Schaltflächenpositionen bearbeiten</string>
+    <string name="pick_shortcut">Wählen Sie eine Verknüpfung</string>
+    <string name="pick_app">App auswählen</string>
+    <string name="pick_contact">Kontakt auswählen</string>
+    <string name="disable">Deaktivieren</string>
+    <string name="select_action">Aktion auswählen</string>
+    <string name="preference">Präferenz</string>
+    <string name="button_preference">Button Präferenz</string>
+    <string name="alpha_after_three_second">Wenn diese Option aktiviert ist, wird die Schaltfläche nach 3 Sekunden ausgeblendet</string>
+    <string name="automatic_moved_to_edge">Wenn diese Option aktiviert ist, wird die Schaltfläche automatisch an den Bildschirmrand verschoben</string>
+    <string name="show_button_speed">Wenn diese Option aktiviert ist, wird Ihre Internetgeschwindigkeit auf der Schaltfläche angezeigt</string>
+    <string name="button_size">Knopfgröße</string>
+    <string name="speed_size">Geschwindigkeitsgröße</string>
+    <string name="button_color">Knopffarbe</string>
+    <string name="panel_preference">Panel-Einstellungen</string>
+    <string name="panel_color">Bedienfeldfarbe</string>
+    <string name="panel_width_percent">Passen Sie die Breite des Panels an</string>
+    <string name="panel_button_sizes">Panel Button Größen</string>
+    <string name="panel_button_text_size">Textgröße der Bedienfeldschaltfläche</string>
+    <string name="delete_all_actions_title">Alle Aktionen löschen?</string>
+    <string name="delete_actions_subtitle">Sind Sie sicher, alle Aktionen im Panel zu löschen?</string>
+    <string name="camera_permission_title">Kameraerlaubnis</string>
+    <string name="camera_permission_subtitle" tools:ignore="TypographyEllipsis">Die Erlaubnis der Kamera ist erforderlich, um Funktionen wie ...</string>
+    <string name="delete_app_subtitle">Sind Sie sicher, die App zu löschen?</string>
+    <string name="theme_store">Themenspeicher</string>
+    <string name="action_list_is_empty_please_add_new_item">Die Aktionsliste ist leer. Bitte fügen Sie ein neues Element hinzu</string>
+    <string name="apply">Anwenden</string>
+    <string name="offline_buttons">Offline-Schaltflächen</string>
+    <string name="offline_backgrounds">Offline-Hintergründe</string>
+    <string name="offline_icon_fonts">Offline-Symbolschriftarten</string>
+    <string name="default_theme">Standardthema</string>
+    <string name="default_theme_subtitle">Sind Sie sicher, dass Sie das Standarddesign zurücksetzen?</string>
+    <string name="update_to_this_version_is_mandatory">Ein Update auf eine neue Version ist obligatorisch</string>
+    <string name="call_permission_subtitle">Anrufberechtigung zum Telefonieren erforderlich</string>
+    <string name="double_tap_action">Doppeltippen Aktion</string>
+    <string name="single_tap_action">Single Tap-Aktion</string>
+    <string name="hold_action">Aktion halten</string>
+    <string name="left_menu_title">Wenn diese Option aktiviert ist, sehen Sie eine Zeile im Bedienfeld und einen Bedienfeldstick auf der Startseite des Bildschirms. Dies hängt von der Sprache ab, die Sie im Telefon einstellen</string>
+    <string name="tap_to_request_admin_title">Tippen Sie hier, um die Administratorberechtigung des Geräts anzufordern</string>
+    <string name="login_to_market">Sie sind anscheinend nicht angemeldet %s</string>
+    <string name="panel_buttons_color">Bedienfeldtasten Farbe</string>
+    <string name="not_compatible">Nicht kompatibel!</string>
+    <string name="power_menu_compatible_with_android_five">Power-Menü benötigen Android-Version 5 und höher</string>
+    <string name="tap_to_request_enable_disturb_mode_title">Störung benötigt!</string>
+    <string name="tap_to_request_enable_disturb_mode_subtitle">Für die Stummschaltung des Geräts muss die App den Störungsmodus aktivieren</string>
+    <string name="call_permission_title">Tippen Sie auf, um die Anrufberechtigung zu aktivieren</string>
+
+    <!--    Buttons    -->
+    <string name="open_window">Fenster öffnen</string>
+    <string name="hide">Ausblenden</string>
+    <string name="volume_down">Lautstärke runter</string>
+    <string name="volume_up">Lautstärke erhöhen</string>
+    <string name="screenshot">Bildschirmfoto</string>
+    <string name="mute">Stumm</string>
+    <string name="wifi">Wifi</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="multitasking">Multitasking</string>
+    <string name="home">Zuhause</string>
+    <string name="brightness">Helligkeit</string>
+    <string name="torch">Fackel</string>
+    <string name="lock_rotate">Sperre drehen</string>
+    <string name="back">Zurück</string>
+    <string name="lock">Sperren</string>
+    <string name="volume">Volumen</string>
+    <string name="sound_setting">Toneinstellung</string>
+    <string name="operator_setting">Bedienereinstellung</string>
+    <string name="gps_setting">GPS-Einstellung</string>
+    <string name="power">Leistung</string>
+    <string name="apps">Apps</string>
+    <string name="notification">Notification</string>
+    <string name="permissions">Berechtigungen</string>
+    <string name="disable_animation">Deaktivieren Sie die Animation zum Öffnen / Schließen des Bedienfelds</string>
+    <string name="pager">Wenn diese Option aktiviert ist, enthält jede Seite 9 Elemente</string>
+    <string name="pager_and_edge_cant_enable_same_time">Das Pager- und Edge-Menü kann nicht gleichzeitig aktiviert werden</string>
+    <string name="warning">Warnung</string>
+    <string name="screenshot_saved_at">Ihr neuer Screenshot wurde unter %s Pfad gespeichert</string>
+    <string name="sorry">Es tut uns leid</string>
+    <string name="reboot">Starten Sie neu</string>
+    <string name="root_needed">Root Erforderlich</string>
+    <string name="clipboard">Zwischenablage</string>
+    <string name="translator">Übersetzerin</string>
+    <string name="paste_your_text_here">Fügen Sie Ihren Text hier ein</string>
+    <string name="add_to_clipboard">Vom Editor hinzufügen</string>
+    <string name="add_from_clipboard">Aus der Zwischenablage hinzufügen</string>
+    <string name="add_more_clipboard_need_pro">Wenn Sie mehr als 2 Elemente in die Zwischenablage aufnehmen, benötigen Sie die Pro-Version</string>
+    <string name="tap_to_clipboard">Klicken Sie auf das Element, um es in die Zwischenablage zu kopieren</string>
+    <string name="animate_marquee">Wenn diese Option aktiviert ist, wird die Animation gestartet, wenn die Texte im Bedienfeld nicht der Breite entsprechen</string>
+    <string name="screen_recording">Bildschirm recorder</string>
+    <!--    Buttons    -->
+
+    <!--  Bug Report  -->
+    <string name="first_name">Vorname</string>
+    <string name="phone_number">Handy, Mobiltelefon</string>
+    <string name="type_ticket_title">Geben Sie hier Ihr Problem ein</string>
+    <string name="ticket">Fahrkarte</string>
+    <string name="success_upload_report">Bericht erfolgreich hochgeladen</string>
+    <string name="rate_the_app">Für die Fortschritts-App bitte bewerten oder bewerten</string>
+    <string name="review">Rezension</string>
+    <string name="rate_now">Jetzt bewerten</string>
+    <string name="do_not_ask_rate">Fragen Sie nicht noch einmal.</string>
+    <string name="last_name">Nachname</string>
+    <!--  Bug Report  -->
+
+    <!--  Translate  -->
+    <string name="enter_your_text_to_translate">Geben Sie Ihren zu übersetzenden Text ein</string>
+    <string name="from">Von</string>
+    <string name="to">Zu</string>
+    <string name="downloading_translation">Warten Sie einige Minuten, um den Download abzuschließen.</string>
+    <!--  Translate  -->
+
+    <!-- Login -->
+    <string name="enterEmail">E-Mail Adresse eingeben</string>
+    <string name="password_length_must_grater_than_six">Die Passwortlänge muss länger als 6 Zeichen sein</string>
+    <string name="enter_password">Passwort eingeben</string>
+    <string name="login">Anmeldung</string>
+    <string name="register">Registrieren</string>
+    <string name="forgotPasswordQuestion">Passwort vergessen?</string>
+    <string name="orLoginWith">oder Login mit</string>
+    <string name="loginWithGoogle">Mit Google eingeben</string>
+    <string name="login_with_sms">Mit SMS eingeben</string>
+    <string name="first_login_to_system">Erste Anmeldung am System</string>
+    <!-- Login -->
+
+    <!-- Register -->
+    <string name="validate">Validierung</string>
+    <string name="incorrect_repeat_pass">Falsches Wiederholungskennwort</string>
+    <string name="confirm_password">Passwort wiederholen</string>
+    <string name="order_not_found">Bestellung nicht gefunden</string>
+    <string name="user_registered_success">Vom Benutzer registrierter Erfolg</string>
+    <string name="user_with_this_email_exist">Benutzer mit dieser E-Mail existieren</string>
+    <string name="email_not_valid">E-Mail nicht gültig</string>
+    <string name="user_pass_incorrect">Benutzername oder Passwort falsch</string>
+    <string name="incorrect_sms_code">Falscher SMS-Code</string>
+    <string name="limit_sms_request">Sie haben 10 SMS an einem Tag erreicht</string>
+    <string name="incorrect_email_code">E-Mail-Code ist falsch</string>
+    <!-- Register -->
+
+    <!-- Forgot Password -->
+    <string name="enter_email_verify_code">Geben Sie den E-Mail-Bestätigungscode ein</string>
+    <string name="forgotPassword">Passwort vergessen</string>
+    <string name="forgot_password_confirmation">Passwortbestätigung vergessen</string>
+    <string name="enter_new_password">Neues Passwort eingeben</string>
+    <string name="enter_new_password_repeat">Wiederhole das neue Passwort</string>
+    <string name="password_not_match">Passwörter stimmen nicht überein</string>
+    <string name="reset_password_request">Passwortanforderung zurücksetzen</string>
+    <string name="reset_password">Passwort zurücksetzen</string>
+    <string name="reset_password_successes">Ihr Passwort wurde erfolgreich geändert</string>
+    <!-- Forgot Password -->
+
+    <!-- Login With SMS-->
+    <string name="remaining_time">Verbleibende Zeit</string>
+    <string name="enter_phone_number">Telefonnummer eingeben</string>
+    <string name="request_sms_code">SMS-Code anfordern</string>
+    <string name="verify_code">Code überprüfen</string>
+    <!-- Login With SMS-->
+    <string name="version">Ausführung</string>
+    <string name="logout">Ausloggen</string>
+    <string name="email">Email</string>
+    <string name="last_login_date">Letzter Log-in</string>
+    <string name="profile">Profil</string>
+    <string name="user_name">Nutzername</string>
+    <string name="install_fail">Installation fehlgeschlagen</string>
+    <string name="manual_install">App manuell installieren von %s</string>
+    <string name="delete_all_notifs_subtitle">Sind Sie sicher, alle Benachrichtigungen zu löschen?</string>
+    <string name="delete_all_notifications_title">Alle Benachrichtigungen löschen</string>
+    <string name="start">Anfang</string>
+    <string name="write_a_message">Eine Nachricht schreiben</string>
+    <string name="in_progress">In Bearbeitung</string>
+    <string name="solved">Gelöst</string>
+    <string name="enable_disable_subtitle">Sie können Aktivieren oder Deaktivieren verwalten</string>
+    <string name="auto_transparency">Automatische Transparenz</string>
+    <string name="stick_to_edge">Halten Sie sich an die Kante</string>
+    <string name="internet_speed">Internetgeschwindigkeit</string>
+    <string name="edge_panel">Randbedienfeld</string>
+    <string name="animation_open_close">Animation Öffnen / Schließen</string>
+    <string name="paging_panel">Paging-Bereich</string>
+    <string name="animate_text_icon_panel">Animieren Sie das Textsymbolfenster</string>
+    <string name="button_selected_color">Ausgewählte Farbe für Schaltfläche</string>
+    <string name="selected_color_for_panel_icons">Ausgewählte Farbe für Symbole im Bedienfeld.</string>
+    <string name="panel_selected_color">Vom Panel ausgewählte Farbe.</string>
+    <string name="edit_position_subtitle">Sie können das Verhalten von Schaltflächen neu anordnen und ändern.</string>
+    <string name="deactivate_device_admin">Löschen muss Geräteadministrator deaktivieren, falls aktiviert.</string>
+    <string name="restore">Wiederherstellen</string>
+    <string name="notification_empty">Sie haben keine neue Benachrichtigung. \n Alle Benachrichtigungen werden hier angezeigt.</string>
+    <string name="empty_buttons">Wählen Sie die Schaltfläche +, um sie zur Liste hinzuzufügen.</string>
+    <string name="empty_ticket">Drücken Sie die Taste +, um ein neues Gespräch mit Unterstützung zu beginnen.</string>
+    <string name="offline">Offline</string>
+    <string name="circular_button">Kreistaste</string>
+    <string name="circular_subtitle">Diese Option fügt kreisförmig um die Schaltflächen im Bedienfeld hinzu.</string>
+    <string name="export_database">Datenbank exportieren</string>
+    <string name="export_subtitle">Sie können alle Daten für die Zwischenablage und die Leitner-Box in eine Datei auf einer Festplatte exportieren.</string>
+    <string name="import_subtitle">Sie können alle Daten für die Zwischenablage und die Leitner-Box aus einer Datei auf einer Festplatte importieren.</string>
+    <string name="import_database">Datenbank importieren</string>
+    <string name="export_database_path">Ihre Datenbank im Pfad gespeichert %s</string>
+    <string name="import_database_path">Ihre Datenbank wurde erfolgreich importiert.Bitte starten Sie die Anwendung nach dem Import-Backup neu</string>
+    <string name="show_button_quick_setting">Schaltfläche anzeigen</string>
+    <string name="hide_button_quick_setting">Schaltfläche ausblenden</string>
+    <string name="on">Auf</string>
+    <string name="off">aus</string>
+    <string name="request_permission_accessibility_notif_title">Barrierefreiheit aktivieren</string>
+    <string name="request_permission_accessibility_notif_sub_title">Für Aktionen wie Back, Home, Multitasking usw. ist diese Berechtigung erforderlich</string>
+    <string name="stop_recording">Halt</string>
+    <string name="screen_recording_path">Datei gespeichert unter:%s</string>
+    <string name="leitner_box">Leitner Box</string>
+    <string name="leitner_box_sub_title">Sie können den Fortschritt der Leitner-Box anzeigen und verwalten.</string>
+    <string name="add_question">Frage hinzufügen</string>
+    <string name="add_or_edit_leitner">Leitner hinzufügen oder bearbeiten</string>
+    <string name="reviewable">Überprüfbar: </string>
+    <string name="questions">Fragen:</string>
+    <string name="tap_to_show_answer">Tippen Sie hier, um die Antwort anzuzeigen</string>
+    <string name="guess">Vermuten</string>
+    <string name="fail">Scheitern</string>
+    <string name="definitions">Definitionen</string>
+    <string name="synonyms">Synonyme</string>
+    <string name="total">Gesamt %1$s / %2$s</string>
+    <string name="failed">Gescheitert: </string>
+    <string name="correct">Richtig: </string>
+    <string name="manual_answer">Manuelle Antwort</string>
+    <string name="pronunciation">Aussprache: %1$s</string>
+    <string name="noun">Substantiv</string>
+    <string name="verb">Verb</string>
+    <string name="adjective">Adjektiv</string>
+    <string name="adverb">Adverb</string>
+    <string name="unknown">Unbekannt</string>
+    <string name="download_dictionary">Wörterbuch herunterladen</string>
+    <string name="manage_dictionaries">Wörterbücher verwalten</string>
+    <string name="means">Meint</string>
+    <string name="import_all_dic_to_leitner">Alle Wörterbücher nach Leitner importieren?</string>
+    <string name="import_to_db">Import</string>
+    <string name="edit_profile">Profil bearbeiten</string>
+    <string name="enter_current_password">Aktuelles Passwort eingeben</string>
+    <string name="enter_first_name">Geben Sie den Namen richtig ein</string>
+    <string name="enter_family_name">Enter Last Name correctly</string>
+    <string name="user_edited_successfully">Benutzerdetails erfolgreich bearbeitet.</string>
+    <string name="total_reviewable_count_in_leitner">Fragen insgesamt : %s </string>
+    <string name="total_question_count_in_leitner">Fragen : %s </string>
+    <string name="empty_ticket_message">Bitte füllen Sie das Meldungsfeld aus</string>
+    <string name="download_failed_title">Herunterladen fehlgeschlagen!</string>
+    <string name="download_failed_message">Aus irgendeinem Grund ist der Download fehlgeschlagen :%s</string>
+    <string name="downloading_dictionary_status">wird heruntergeladen %d %%</string>
+    <string name="uncompressing">Dekomprimieren</string>
+    <string name="imported_successfully">Alle Artikel nach leitner importiert</string>
+    <string name="exit_from_review_title">Sind Sie sicher, die Überprüfung zu beenden?</string>
+    <string name="yes">Ja</string>
+    <string name="is_back_to_top_level_enable_when_failed_guess">ist wieder auf der obersten Ebene aktiviert, wenn die Vermutung fehlgeschlagen ist</string>
+    <string name="back_to_top_level">Zurück nach oben</string>
+    <string name="a_z">A-Z</string>
+    <string name="fav">Fav</string>
+    <string name="date">Datum</string>
+    <string name="level">Niveau</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="theme_packs">Themenpakete</string>
+    <string name="automatic_backup_path">Automatische Sicherung gefunden in : \nAndroid/data/ir.amozkade.advancedAsisstiveTouche</string>
+    <string name="write_guess_word">Schreiben Sie hier ein erratenes Wort</string>
+    <string name="check">prüfen</string>
+    <string name="reverse_review_level">Überprüfungsstufe umkehren %s</string>
+    <string name="remaining_day">%s day links</string>
+    <string name="export_to_google_drive">Nach Google Drive exportieren</string>
+    <string name="import_from_google_drive">Vom Laufwerk importieren</string>
+    <string name="upload_to_drive_subtitle_button">Sichern Sie die Leitner Box auf Google Drive</string>
+    <string name="import_from_google_drive_subtitle">Importieren Sie ein Backup von Google Drive</string>
+    <string name="upload_google_drive_percent">%s%% Auf Google Drive hochgeladen</string>
+    <string name="show_the_definition_and_synonym">Show the Definition and Synonym</string>
+    <string name="definition_and_synonym">Definition and Synonym</string>
+    <string name="completed">abgeschlossen</string>
+    <string name="completed_count_in_leitner">Zählung : %s</string>
+    <string name="back_to_list">Zurück zur Liste</string>
+    <string name="chose_leitner_to_move">Wählen Sie Leitner zum Umzug</string>
+    <string name="move">Bewegung</string>
+
+</resources>
+
+

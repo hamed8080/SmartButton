@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.user.profile.ProfileViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/profileContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker"
+        android:orientation="vertical">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:action_bar_title="@string/profile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/paddingAllLayout">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtUserUserNameTitle"
+                style="@style/heavy_font_family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/paddingAllLayout3X"
+                android:text="@string/user_name"
+                android:textColor="@color/black_text_bold_color"
+                android:textSize="24sp"
+                tools:ignore="SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtUserName"
+                style="@style/bold_font_family"
+                setTextView="@{vm.model.userName}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/paddingAllLayout"
+                android:layout_marginLeft="@dimen/paddingAllLayout"
+                android:gravity="start"
+                android:textColor="@color/blue"
+                tools:text="hamed8080" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtUserEmailTitle"
+                style="@style/heavy_font_family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/paddingAllLayout3X"
+                android:text="@string/email"
+                android:textColor="@color/black_text_bold_color"
+                android:textSize="24sp"
+                android:typeface="monospace"
+                tools:ignore="SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtEmail"
+                style="@style/bold_font_family"
+                setTextView="@{vm.model.email}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/paddingAllLayout"
+                android:layout_marginLeft="@dimen/paddingAllLayout"
+                android:gravity="start"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                tools:text="hamed8080@gmail.com" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/login_date"
+                style="@style/heavy_font_family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/paddingAllLayout3X"
+                android:text="@string/last_login_date"
+                android:textColor="@color/black_text_bold_color"
+                android:textSize="24sp"
+                android:typeface="monospace"
+                tools:ignore="SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txtLastLogin"
+                style="@style/bold_font_family"
+                setTextView="@{vm.model.lastLoginDateText}"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/paddingAllLayout"
+                android:layout_marginLeft="@dimen/paddingAllLayout"
+                android:gravity="start"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                tools:text="1398/12/10" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnResetProfile"
+                style="@style/primary_button"
+                android:layout_marginTop="@dimen/paddingAllLayout3X"
+                android:text="@string/reset_password"
+                tools:ignore="UnusedAttribute" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditProfile"
+                style="@style/primary_button"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:text="@string/edit_profile"
+                tools:ignore="UnusedAttribute" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnExit"
+                style="@style/primary_button"
+                android:layout_marginTop="@dimen/paddingAllLayout"
+                android:backgroundTint="@color/red"
+                android:text="@string/logout"
+                app:backgroundTint="@color/red"
+                app:strokeColor="@color/red"
+                tools:ignore="UnusedAttribute" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

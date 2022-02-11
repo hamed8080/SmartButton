@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.leitnerQuestionListActivity.LeitnerQuestionListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_darker">
+
+        <ir.amozkade.advancedAsisstiveTouche.helper.customviews.ActionBar
+            android:id="@+id/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:action_bar_title="english" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tfSearch"
+            style="@style/simple_input_layout"
+            android:layout_marginStart="@dimen/paddingAllLayout2X"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            android:layout_marginEnd="@dimen/paddingAllLayout2X"
+            app:layout_constraintTop_toBottomOf="@id/action_bar"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSearch"
+                style="@style/edit_text_inside_input_layout"
+                android:hint="@string/search"
+                app:textInputEdiTextWatcher="@{vm.searchTextWatcher}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipSpacing="24dp"
+            app:chipSpacingHorizontal="@dimen/paddingAllLayout2X"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tfSearch"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chpLevel"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
+                android:text="@string/level" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chpDate"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/date" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chpAlphabet"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/a_z" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chpFav"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="@string/fav" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller
+            android:id="@+id/fastScroller"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/paddingAllLayout"
+            app:handleHeight="24dp"
+            app:handleWidth="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chipGroup"
+            app:handleVisibilityDuration="1500"
+            app:handleDrawable="@drawable/handle_drawable"
+            app:popupDrawable="@drawable/thumb_drawable">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvQuestions"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingBottom="@dimen/paddingAllLayout3X"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
+                tools:itemCount="4"
+                tools:listitem="@layout/row_leitner_question" />
+        </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
