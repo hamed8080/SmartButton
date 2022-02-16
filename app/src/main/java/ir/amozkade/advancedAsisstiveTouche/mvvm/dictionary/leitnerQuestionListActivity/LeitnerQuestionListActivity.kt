@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,7 +32,14 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
     private lateinit var mBinding: ActivityLeitnerQuestionListBinding
     var leitnerId: Int? = null
 
-    private val addQuestionConsent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { }
+    private val addQuestionConsent =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
+            if (activityResult.data?.getBooleanExtra("isNewAdded",false) == false){
+                viewModel.setState(LeitnerQuestionListStateEvent.Edited(activityResult?.data?.getParcelableExtra("questionAnswer")))
+            }else{
+                viewModel.setState(LeitnerQuestionListStateEvent.Add(activityResult?.data?.getParcelableExtra("questionAnswer")))
+            }
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,13 +49,6 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
         setupObservers()
     }
 
-    override fun onResume() {
-        super.onResume()
-        leitnerId?.let {
-            viewModel.setState(LeitnerQuestionListStateEvent.GetAllLeitnerQuestions(it))
-        }
-    }
-
     private fun setupUI() {
         addLoadingsToContainer(mBinding.root as ViewGroup)
         mBinding.actionBar.btnBackSetOnClickListener { finish() }
@@ -55,6 +56,17 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
         mBinding.vm = viewModel
         mBinding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
             viewModel.setState(LeitnerQuestionListStateEvent.Sort(checkedId))
+        }
+
+        mBinding.actionBar.mBinding.btnAdd.setTextColor( ContextCompat.getColor(this,R.color.primary_color))
+        mBinding.actionBar.btnAddSetOnClickListener {
+            val intent = Intent(this, AddOrEditQuestionActivity::class.java)
+            intent.putExtra("leitnerId", leitnerId)
+            addQuestionConsent.launch(intent)
+        }
+
+        leitnerId?.let {
+            viewModel.setState(LeitnerQuestionListStateEvent.GetAllLeitnerQuestions(it))
         }
     }
 
@@ -78,6 +90,10 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
                 if (dataState.data is LeitnerQuestionListResponse.Removed) {
                     (mBinding.rcvQuestions.adapter as? LeitnerQuestionListAdapter)?.remove(dataState.data.questionAnswer)
                 }
+
+                if (dataState.data is LeitnerQuestionListResponse.Added) {
+                    (mBinding.rcvQuestions.adapter as? LeitnerQuestionListAdapter)?.add(dataState.data.questionAnswer)
+                }
             }
             manageDataState(dataState)
         }
@@ -86,7 +102,11 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
     @SuppressLint("NotifyDataSetChanged")
     private fun setupRecyclerView(questionAnswers: ArrayList<QuestionAnswer>, levels: List<Level>) {
         mBinding.rcvQuestions.run {
-            adapter = LeitnerQuestionListAdapter(questionAnswers, levels, this@LeitnerQuestionListActivity)
+            adapter = LeitnerQuestionListAdapter(
+                questionAnswers,
+                levels,
+                this@LeitnerQuestionListActivity
+            )
             adapter?.notifyDataSetChanged()
         }
     }
@@ -121,23 +141,31 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
     private var leitnerSelectedIndex: Int = 0
     private fun showImportDialog(leitners: List<Leitner>, questionAnswer: QuestionAnswer) {
         MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.chose_leitner_to_move))
-                .setNeutralButton(getString(R.string.cancel)) { dialog, _ ->
-                    dialog.dismiss()
+            .setTitle(getString(R.string.chose_leitner_to_move))
+            .setNeutralButton(getString(R.string.cancel)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton(getString(R.string.move)) { dialog, _ ->
+                val leitnerSelectedIndex = leitnerSelectedIndex
+                if (leitners.count() == 0) {
+                    showWarn(
+                        getString(R.string.add_new_leitner),
+                        getString(R.string.add_new_leitner)
+                    )
+                    return@setPositiveButton
                 }
-                .setPositiveButton(getString(R.string.move)) { dialog, _ ->
-                    val leitnerSelectedIndex = leitnerSelectedIndex
-                    if (leitners.count() == 0) {
-                        showWarn(getString(R.string.add_new_leitner), getString(R.string.add_new_leitner))
-                        return@setPositiveButton
-                    }
-                    val leitner = leitners[leitnerSelectedIndex]
-                    viewModel.setState(LeitnerQuestionListStateEvent.MoveToLeitner(questionAnswer, leitner.id))
-                    dialog.dismiss()
-                }
-                .setSingleChoiceItems(leitners.map { it.name }.toTypedArray(), 0) { _, which ->
-                    leitnerSelectedIndex = which
-                }
-                .show()
+                val leitner = leitners[leitnerSelectedIndex]
+                viewModel.setState(
+                    LeitnerQuestionListStateEvent.MoveToLeitner(
+                        questionAnswer,
+                        leitner.id
+                    )
+                )
+                dialog.dismiss()
+            }
+            .setSingleChoiceItems(leitners.map { it.name }.toTypedArray(), 0) { _, which ->
+                leitnerSelectedIndex = which
+            }
+            .show()
     }
 }

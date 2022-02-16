@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Context.LAYOUT_INFLATER_SERVICE
 import android.graphics.Typeface
 import android.os.Build
+import android.speech.tts.TextToSpeech
 import android.view.*
 import android.widget.PopupWindow
 import androidx.core.content.res.ResourcesCompat
@@ -33,11 +34,14 @@ class LeitnerQuestionListAdapter(
 
     var iranSansFont: Typeface? = null
     var sfProFont: Typeface? = null
+    val tts:TextToSpeech
 
     init {
         val context = onQuestionListener as Context
         iranSansFont = ResourcesCompat.getFont(context, R.font.iransans_bold)
         sfProFont = ResourcesCompat.getFont(context, R.font.sf_pro_rounded_bold)
+        tts = TextToSpeech(context, null)
+        tts.language = Locale.US
     }
 
     interface OnQuestionListener {
@@ -75,9 +79,24 @@ class LeitnerQuestionListAdapter(
             }
     }
 
+    fun add(questionAnswer: QuestionAnswer) {
+        questionAnswers.add(questionAnswer)
+        val index = questionAnswers.indexOf(questionAnswer)
+        notifyItemInserted(index)
+    }
+
     fun remove(questionAnswer: QuestionAnswer) {
         val index = questionAnswers.indexOfFirst { questionAnswer.question == it.question }
         notifyItemRemoved(index)
+    }
+
+    private fun speakText(text: String) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
+        } else {
+            @Suppress("DEPRECATION")
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null)
+        }
     }
 
     inner class ViewHolder(val row: RowLeitnerQuestionBinding) : RecyclerView.ViewHolder(row.root) {
@@ -118,6 +137,9 @@ class LeitnerQuestionListAdapter(
                 onQuestionListener.onFavTaped(questionAnswer)
             }
             rowBinding.btnFav.setIconResource(if (questionAnswer.favorite) R.drawable.ic_baseline_star_24 else R.drawable.ic_baseline_star_outline_24)
+            rowBinding.btnPronounce.setOnClickListener {
+                speakText(questionAnswer.question)
+            }
             rowBinding.menuButton.setOnClickListener {
                 openPopupMenu(questionAnswer, it, rowBinding)
             }

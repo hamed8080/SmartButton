@@ -22,6 +22,7 @@ class ActionBar : ConstraintLayout {
     private var doneButton: Boolean = false
     private var backButton: Boolean = false
     private var addButton: Boolean = false
+    private var customButton: Boolean = false
     private var isMainFont: Boolean = false
 
     constructor(context: Context) : super(context) {
@@ -46,6 +47,7 @@ class ActionBar : ConstraintLayout {
         notifButton = ta.getBoolean(R.styleable.ActionBar_action_bar_notification_button, false)
         loginButton = ta.getBoolean(R.styleable.ActionBar_action_bar_login_button, false)
         addButton = ta.getBoolean(R.styleable.ActionBar_action_bar_add_button, false)
+        customButton = ta.getBoolean(R.styleable.ActionBar_action_bar_custom_button, false)
         isMainFont = ta.getBoolean(R.styleable.ActionBar_action_bar_is_main_font, false)
     }
 
@@ -58,6 +60,7 @@ class ActionBar : ConstraintLayout {
         mBinding.btnNotification.visibility = if (notifButton) VISIBLE else GONE
         mBinding.btnLogin.visibility = if (loginButton) VISIBLE else GONE
         mBinding.btnAdd.visibility = if (addButton) VISIBLE else GONE
+        mBinding.btnCustom.visibility = if (customButton) VISIBLE else GONE
         mBinding.btnBack.setOnClickListener {
             (context as AppCompatActivity).finish()
         }
@@ -85,6 +88,10 @@ class ActionBar : ConstraintLayout {
 
     fun btnDoneSetOnClickListener(function: () -> Unit) {
         mBinding.btnSubmit.setOnClickListener { function.invoke() }
+    }
+
+    fun btnCustomButtonSetOnClickListener(function: () -> Unit) {
+        mBinding.btnCustom.setOnClickListener { function.invoke() }
     }
 
     fun btnNotifSetOnClickListener(function: () -> Unit) {

@@ -7,4 +7,5 @@ sealed class LeitnerQuestionListResponse{
     data class AllQuestions(val questionAnswers:List<QuestionAnswer> , val levels:List<Level>):LeitnerQuestionListResponse()
     data class QuestionAnswerUpdated(val questionAnswer:QuestionAnswer):LeitnerQuestionListResponse()
     data class Removed(val questionAnswer:QuestionAnswer):LeitnerQuestionListResponse()
+    data class Added(val questionAnswer:QuestionAnswer):LeitnerQuestionListResponse()
 }

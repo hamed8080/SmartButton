@@ -124,7 +124,7 @@ class ReviewViewModel @Inject constructor(
     }
 
     private fun failedGuess() {
-        _response.postValue(DataState.Success(ReviewResponse.ResetView))
+        _response.value = DataState.Success(ReviewResponse.ResetView)
         if (questionAnswers.size <= 0) {
             showFinishDialog()
             return
@@ -136,7 +136,7 @@ class ReviewViewModel @Inject constructor(
     }
 
     private fun backToTopLevelIfEnabled(questionAnswer: QuestionAnswer) {
-        GlobalScope.launch(IO) {
+        CoroutineScope(IO).launch {
             reviewRepository.backToTopLevel(questionAnswer, model.leitner)
         }
     }
@@ -146,7 +146,7 @@ class ReviewViewModel @Inject constructor(
     }
 
     private suspend fun guessed() {
-        _response.postValue(DataState.Success(ReviewResponse.ResetView))
+        _response.value = DataState.Success(ReviewResponse.ResetView)
         if (questionAnswers.size <= 0) {
             showFinishDialog()
             return
@@ -190,7 +190,7 @@ class ReviewViewModel @Inject constructor(
             model.favorite = questionAnswer.favorite
             _response.postValue(DataState.Success(ReviewResponse.Favorite(model.favorite)))
             model.questionAnswer = questionAnswer
-            GlobalScope.launch(IO) {
+            CoroutineScope(IO).launch {
                 when {
                     questionAnswer.answer != null -> {
                         setUserAnswerIfExist(questionAnswer)
@@ -206,6 +206,7 @@ class ReviewViewModel @Inject constructor(
         }
         callApiToGetSynonymsAnDefinition()
         model.answerVisible = false
+
     }
 
     private fun initGoogleTranslatorObserver() {
@@ -247,7 +248,7 @@ class ReviewViewModel @Inject constructor(
     }
 
     private fun callApiToGetSynonymsAnDefinition() {
-        GlobalScope.launch {
+        CoroutineScope(IO).launch {
             fetchDefinitionsFromServer()
             fetchSynonymsFromServer()
         }

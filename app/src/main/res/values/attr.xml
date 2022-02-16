@@ -65,6 +65,7 @@
         <attr name="action_bar_login_button" format="boolean"/>
         <attr name="action_bar_add_button" format="boolean"/>
         <attr name="action_bar_is_main_font" format="boolean"/>
+        <attr name="action_bar_custom_button" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="CustomSwitch">

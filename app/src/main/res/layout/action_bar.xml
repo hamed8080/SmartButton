@@ -106,6 +106,13 @@
                 android:text="@string/f_login"
                 android:visibility="gone"
                 app:layout_constraintRight_toRightOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCustom"
+                style="@style/icon_button"
+                android:visibility="gone"
+                app:layout_constraintRight_toRightOf="parent" />
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

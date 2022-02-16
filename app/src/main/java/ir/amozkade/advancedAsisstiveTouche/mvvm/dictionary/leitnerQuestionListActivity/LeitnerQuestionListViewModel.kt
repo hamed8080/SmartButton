@@ -90,6 +90,20 @@ class LeitnerQuestionListViewModel @Inject constructor(
                         questionAnswerRepository.toggleFavorite(event.questionAnswer)
                     }
 
+                    is LeitnerQuestionListStateEvent.Edited ->{
+                        questionAnswers.first { it.question == event.questionAnswer?.question }.let {
+                            it.answer = event.questionAnswer?.answer
+                            _response.postValue(DataState.Success(LeitnerQuestionListResponse.QuestionAnswerUpdated(it)))
+                        }
+                    }
+
+                    is LeitnerQuestionListStateEvent.Add ->{
+                        event.questionAnswer?.let {
+                            questionAnswers.add(it)
+                            _response.postValue(DataState.Success(LeitnerQuestionListResponse.Added(it)))
+                        }
+                    }
+
                     is LeitnerQuestionListStateEvent.Sort -> {
 
                         val sorted: List<QuestionAnswer>

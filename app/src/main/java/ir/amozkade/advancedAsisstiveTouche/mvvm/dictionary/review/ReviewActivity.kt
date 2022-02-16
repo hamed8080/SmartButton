@@ -1,5 +1,6 @@
 package ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.review
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -16,6 +17,7 @@ import ir.amozkade.advancedAsisstiveTouche.databinding.ActivityReviewLevelBindin
 import ir.amozkade.advancedAsisstiveTouche.helper.api.DataState
 import ir.amozkade.advancedAsisstiveTouche.mvvm.BaseActivity
 import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.addOrEditQuestion.AddOrEditQuestionActivity
+import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.leitnerQuestionListActivity.LeitnerQuestionListActivity
 import ir.mobitrain.applicationcore.alertDialog.AlertDialogDelegate
 import ir.mobitrain.applicationcore.alertDialog.CustomAlertDialog
 import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.levels.models.Level
@@ -75,6 +77,14 @@ class ReviewActivity : BaseActivity(), ReviewDelegate {
         mBinding.translationView.setOnClickListener {
             showOrHideAnswer()
         }
+
+        mBinding.actionBar.mBinding.btnCustom.setText(R.string.f_search)
+        mBinding.actionBar.mBinding.btnCustom.textSize = 14f
+        mBinding.actionBar.mBinding.btnCustom.setTextColor(ContextCompat.getColor(this,R.color.primary_color))
+        mBinding.actionBar.btnCustomButtonSetOnClickListener {
+            openQuestionListInLeitner()
+        }
+
         mBinding.btnGuess.setOnClickListener { viewModel.setState(ReviewStateEvent.Guessed) }
         mBinding.btnFail.setOnClickListener { viewModel.setState(ReviewStateEvent.Failed) }
         mBinding.btnSpeakWord.setOnClickListener { viewModel.setState(ReviewStateEvent.Speak) }
@@ -99,6 +109,12 @@ class ReviewActivity : BaseActivity(), ReviewDelegate {
         intent.putExtra("level", level)
         startActivity(intent)
         finish()
+    }
+
+    private fun openQuestionListInLeitner() {
+        val intent = Intent(this , LeitnerQuestionListActivity::class.java)
+        intent.putExtra("leitnerId", leitnerId)
+        startActivity(intent)
     }
 
     private fun showOrHideAnswer() {
@@ -192,12 +208,14 @@ class ReviewActivity : BaseActivity(), ReviewDelegate {
         startActivity(intent)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupDefinitionsAdapter(definitions: List<String>) {
         mBinding.definitionsView.visibility = if (definitions.isEmpty() || !showDefinition) View.GONE else View.VISIBLE
         mBinding.rcvDefinitions.adapter = DefinitionsAdapter(definitions)
         (mBinding.rcvDefinitions.adapter as DefinitionsAdapter).notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupSynonymAdapter(synonyms: List<Synonym>) {
         mBinding.synonymsView.visibility = if (synonyms.isEmpty() || !showDefinition) View.GONE else View.VISIBLE
         mBinding.rcvSynonyms.adapter = SynonymsAdapter(synonyms)
@@ -229,6 +247,7 @@ class ReviewActivity : BaseActivity(), ReviewDelegate {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun resetView() {
         viewModel.getModel().answerVisible = false
         mBinding.btnTapToShow.visibility = View.VISIBLE

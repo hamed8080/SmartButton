@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
+            app:action_bar_add_button="true"
             tools:action_bar_title="english" />
 
         <com.google.android.material.textfield.TextInputLayout

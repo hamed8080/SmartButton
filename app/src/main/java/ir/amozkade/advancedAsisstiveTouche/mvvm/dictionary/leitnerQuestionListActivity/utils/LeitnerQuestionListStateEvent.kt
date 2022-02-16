@@ -10,6 +10,8 @@ sealed class LeitnerQuestionListStateEvent {
     data class BackToList(val questionAnswer: QuestionAnswer):LeitnerQuestionListStateEvent()
     data class MoveToLeitner(val questionAnswer: QuestionAnswer,val leitnerId: Int):LeitnerQuestionListStateEvent()
     data class Fav(val questionAnswer: QuestionAnswer):LeitnerQuestionListStateEvent()
+    data class Edited(val questionAnswer: QuestionAnswer?):LeitnerQuestionListStateEvent()
+    data class Add(val questionAnswer: QuestionAnswer?):LeitnerQuestionListStateEvent()
 }
 
 sealed class SortType{
