@@ -40,7 +40,7 @@ class LeitnerQuestionListAdapter(
         val context = onQuestionListener as Context
         iranSansFont = ResourcesCompat.getFont(context, R.font.iransans_bold)
         sfProFont = ResourcesCompat.getFont(context, R.font.sf_pro_rounded_bold)
-        tts = TextToSpeech(context, null)
+        tts = TextToSpeech(context.applicationContext, null)
         tts.language = Locale.US
     }
 

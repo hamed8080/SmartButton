@@ -3,6 +3,7 @@ package ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.leitnerQuestionListA
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -31,6 +32,7 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
     private val viewModel by viewModels<LeitnerQuestionListViewModel>()
     private lateinit var mBinding: ActivityLeitnerQuestionListBinding
     var leitnerId: Int? = null
+    private val argsScrollLState = "recyclerState"
 
     private val addQuestionConsent =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
@@ -47,6 +49,21 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
         leitnerId = intent?.getIntExtra("leitnerId", 0) ?: return
         setupUI()
         setupObservers()
+        if (savedInstanceState == null){
+            leitnerId?.let {
+                viewModel.setState(LeitnerQuestionListStateEvent.GetAllLeitnerQuestions(it))
+            }
+        }else{
+            val adapterState:Parcelable? = savedInstanceState.getParcelable(argsScrollLState)
+            mBinding.rcvQuestions.layoutManager?.onRestoreInstanceState(adapterState)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (mBinding.rcvQuestions.adapter != null){
+            outState.putParcelable(argsScrollLState, mBinding.rcvQuestions.layoutManager?.onSaveInstanceState())
+        }
     }
 
     private fun setupUI() {
@@ -63,10 +80,6 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
             val intent = Intent(this, AddOrEditQuestionActivity::class.java)
             intent.putExtra("leitnerId", leitnerId)
             addQuestionConsent.launch(intent)
-        }
-
-        leitnerId?.let {
-            viewModel.setState(LeitnerQuestionListStateEvent.GetAllLeitnerQuestions(it))
         }
     }
 

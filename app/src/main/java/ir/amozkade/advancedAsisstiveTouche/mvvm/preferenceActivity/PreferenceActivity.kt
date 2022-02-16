@@ -15,10 +15,19 @@ class PreferenceActivity :BaseActivity() ,ColorPickerDialogListener{
 
     lateinit var mBinding: ActivityPreferenceBinding
     private val viewModel: PreferenceViewModel by viewModels()
+    private val argsScrollLState = "scrollViewStatePosition"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupUI()
+        if (savedInstanceState != null){
+            mBinding.scrollView.scrollY = savedInstanceState.getInt(argsScrollLState)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(argsScrollLState, mBinding.scrollView.scrollY)
     }
 
     private fun setupUI() {

@@ -3,6 +3,7 @@ package ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.leitners
 import android.animation.Animator
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
@@ -28,6 +29,7 @@ import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.downloadDictionary.Do
 import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.leitners.utils.LeitnerResponse
 import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.leitners.utils.LeitnerStateEvent
 import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.levels.LevelsActivity
+import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.levels.utils.LevelStateEvent
 import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.manageDictionaries.ManageDictionariesActivity
 import ir.mobitrain.applicationcore.alertDialog.AlertDialogDelegate
 import ir.mobitrain.applicationcore.helper.animations.AnimationListener
@@ -39,6 +41,7 @@ class LeitnerActivity : BaseActivity() , LeitnerAdapter.LeitnerListener {
     private val viewModel by viewModels<LeitnerViewModel>()
     private lateinit var mBinding: ActivityLeitnerBinding
     private var openMenu = false
+    private val argsScrollLState = "recyclerState"
 
     private val addOrEditLeitnerConsent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
         if (activityResult.resultCode == RESULT_OK) {
@@ -53,6 +56,19 @@ class LeitnerActivity : BaseActivity() , LeitnerAdapter.LeitnerListener {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_leitner)
         setupUI()
         setupObservers()
+        if (savedInstanceState == null){
+            viewModel.setState(LeitnerStateEvent.AllLeitner)
+        }else{
+            val adapterState: Parcelable? = savedInstanceState.getParcelable(argsScrollLState)
+            mBinding.rcv.layoutManager?.onRestoreInstanceState(adapterState)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (mBinding.rcv.adapter != null){
+            outState.putParcelable(argsScrollLState, mBinding.rcv.layoutManager?.onSaveInstanceState())
+        }
     }
 
     private fun setupUI() {
@@ -98,7 +114,6 @@ class LeitnerActivity : BaseActivity() , LeitnerAdapter.LeitnerListener {
         mBinding.actionMenu.setOnClickListener {
             mBinding.btnOpenActionMenu.performClick()
         }
-        viewModel.setState(LeitnerStateEvent.AllLeitner)
     }
 
     private fun setupObservers() {

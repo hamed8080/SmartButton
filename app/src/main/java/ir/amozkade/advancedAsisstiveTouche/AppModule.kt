@@ -198,7 +198,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideTTS(@ApplicationContext context: Context): TextToSpeech {
-        val tts = TextToSpeech(context, null)
+        val tts = TextToSpeech(context.applicationContext, null)
         tts.language = Locale.US
         return tts
     }

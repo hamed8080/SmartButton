@@ -3,6 +3,7 @@ package ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.levels
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -28,6 +29,7 @@ class LevelsActivity : BaseActivity(), LevelsAdapter.OnLevelListener, LevelsDele
     private val viewModel: LevelsViewModel by viewModels()
     private lateinit var mBinding: ActivityLevelsBinding
     override lateinit var leitner : Leitner
+    private val argsScrollLState = "recyclerState"
 
     private val addQuestionConsent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
         if (activityResult.resultCode == RESULT_OK) {
@@ -41,11 +43,19 @@ class LevelsActivity : BaseActivity(), LevelsAdapter.OnLevelListener, LevelsDele
         leitner = intent?.getParcelableExtra("Leitner") ?: return
         setupUI()
         setupObservers()
+        if (savedInstanceState == null){
+            viewModel.setState(LevelStateEvent.GetAllLevelsInLeitner(leitner))
+        }else{
+            val adapterState: Parcelable? = savedInstanceState.getParcelable(argsScrollLState)
+            mBinding.rcvLevels.layoutManager?.onRestoreInstanceState(adapterState)
+        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.setState(LevelStateEvent.GetAllLevelsInLeitner(leitner))
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (mBinding.rcvLevels.adapter != null){
+            outState.putParcelable(argsScrollLState, mBinding.rcvLevels.layoutManager?.onSaveInstanceState())
+        }
     }
 
     private fun setupUI() {

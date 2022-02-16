@@ -1,7 +1,9 @@
 package ir.amozkade.advancedAsisstiveTouche.mvvm.themeManager
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -22,7 +24,8 @@ import ir.amozkade.advancedAsisstiveTouche.mvvm.themeManager.utils.ThemeManagerR
 import ir.amozkade.advancedAsisstiveTouche.mvvm.themeManager.utils.ThemeManagerStateEvent
 import ir.mobitrain.applicationcore.alertDialog.AlertDialogDelegate
 import ir.mobitrain.applicationcore.alertDialog.CustomAlertDialog
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -32,6 +35,7 @@ class ThemeManagerActivity : BaseActivity(), SectionAdapter.OnItemClickListener<
     @Inject
     lateinit var themeDao: ThemeDao
     private var offlineThemes: List<Theme> = listOf()
+    private val argsScrollLState = "recyclerState"
 
     @Inject
     lateinit var settingRepository: SettingRepository
@@ -43,13 +47,25 @@ class ThemeManagerActivity : BaseActivity(), SectionAdapter.OnItemClickListener<
         super.onCreate(savedInstanceState)
         setupUI()
         setupObservers()
-        viewModel.setState(ThemeManagerStateEvent.GetAllThemes)
+        if (savedInstanceState == null){
+            showLoadingBlockUi()
+            viewModel.setState(ThemeManagerStateEvent.GetAllThemes)
+        }else{
+            val adapterState: Parcelable? = savedInstanceState.getParcelable(argsScrollLState)
+            mBinding.rcv.layoutManager?.onRestoreInstanceState(adapterState)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (mBinding.rcv.adapter != null){
+            outState.putParcelable(argsScrollLState, mBinding.rcv.layoutManager?.onSaveInstanceState())
+        }
     }
 
     private fun setupUI() {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_theme_manager)
         addLoadingsToContainer(mBinding.container)
-        showLoadingBlockUi()
         mBinding.vm = viewModel
     }
 
@@ -71,12 +87,13 @@ class ThemeManagerActivity : BaseActivity(), SectionAdapter.OnItemClickListener<
             }
             manageDataState(dataState)
         }
-        GlobalScope.launch {
+        CoroutineScope(IO).launch {
             offlineThemes = themeDao.getAllTheme()
         }
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateAdapter(themePacks: List<ThemePack>, themes: List<Section<Theme>>) {
         hideLoading()
         mBinding.rcv.adapter = SectionAdapter(themePacks, themes, offlineThemes, this)

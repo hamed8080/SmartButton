@@ -51,6 +51,7 @@ import javax.inject.Inject
 class MainAssistiveTouchActivity : BaseActivity() {
 
     private lateinit var googleSignInClient: GoogleSignInClient
+    private val argsScrollLState = "scrollViewStatePosition"
 
     @Inject
     @GoogleDriveGoogleSignInOption
@@ -77,6 +78,14 @@ class MainAssistiveTouchActivity : BaseActivity() {
         setupUI()
         setupObservers()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+        if (savedInstanceState != null){
+            mBinding.scrollView.scrollY = savedInstanceState.getInt(argsScrollLState)
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+            outState.putInt(argsScrollLState, mBinding.scrollView.scrollY)
     }
 
     private fun setupUI() {
