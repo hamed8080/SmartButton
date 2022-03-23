@@ -45,8 +45,8 @@ android {
         applicationId "ir.amozkade.advancedAsisstiveTouche"
         minSdkVersion 16
         targetSdkVersion 31
-        versionCode 57
-        versionName '6.63'
+        versionCode 58
+        versionName '6.64'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true

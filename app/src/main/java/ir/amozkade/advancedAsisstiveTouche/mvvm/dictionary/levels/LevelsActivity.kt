@@ -31,7 +31,7 @@ class LevelsActivity : BaseActivity(), LevelsAdapter.OnLevelListener, LevelsDele
     override lateinit var leitner : Leitner
     private val argsScrollLState = "recyclerState"
 
-    private val addQuestionConsent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
+    private val updateListConsent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
         if (activityResult.resultCode == RESULT_OK) {
             viewModel.setState(LevelStateEvent.GetAllLevelsInLeitner(leitner))
         }
@@ -102,7 +102,7 @@ class LevelsActivity : BaseActivity(), LevelsAdapter.OnLevelListener, LevelsDele
     private fun openAddNewQuestion() {
         val intent = Intent(this, AddOrEditQuestionActivity::class.java)
         intent.putExtra("leitnerId", leitner.id)
-        addQuestionConsent.launch(intent)
+        updateListConsent.launch(intent)
     }
 
     override fun onLevelTaped(level: LeitnerLevels) {
@@ -114,7 +114,7 @@ class LevelsActivity : BaseActivity(), LevelsAdapter.OnLevelListener, LevelsDele
         intent.putExtra("level", level.level)
         intent.putExtra("leitnerId", leitner.id)
         intent.putExtra("showDefinition", leitner.showDefinition)
-        startActivity(intent)
+        updateListConsent.launch(intent)
     }
 
     override fun onLongPressOnLevel(level: LeitnerLevels) {

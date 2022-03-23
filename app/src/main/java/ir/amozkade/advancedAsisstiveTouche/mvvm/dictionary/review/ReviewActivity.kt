@@ -1,6 +1,7 @@
 package ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.review
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -268,6 +269,7 @@ class ReviewActivity : BaseActivity(), ReviewDelegate {
                 delegate = object : AlertDialogDelegate {
                     override fun alertCompletion(type: AlertDialogDelegate.AlertTapType, extraButton: MaterialButton?) {
                         if (type == AlertDialogDelegate.AlertTapType.Cancel) {
+                            setResult(Activity.RESULT_OK, intent)
                             finish()
                         }
                     }
@@ -309,6 +311,7 @@ class ReviewActivity : BaseActivity(), ReviewDelegate {
                 delegate = object : AlertDialogDelegate {
                     override fun alertCompletion(type: AlertDialogDelegate.AlertTapType, extraButton: MaterialButton?) {
                         if (type == AlertDialogDelegate.AlertTapType.Submit) {
+                            setResult(Activity.RESULT_OK, intent)
                             finish()
                         }
                     }
