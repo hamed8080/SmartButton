@@ -19,8 +19,8 @@
             android:id="@+id/action_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
             app:action_bar_add_button="true"
+            app:layout_constraintTop_toTopOf="parent"
             tools:action_bar_title="english" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -90,12 +90,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/paddingAllLayout"
-            app:handleHeight="24dp"
-            app:handleWidth="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chipGroup"
-            app:handleVisibilityDuration="1500"
             app:handleDrawable="@drawable/handle_drawable"
+            app:handleHeight="24dp"
+            app:handleVisibilityDuration="1500"
+            app:handleWidth="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/review"
+            app:layout_constraintTop_toBottomOf="@+id/chipGroup"
             app:popupDrawable="@drawable/thumb_drawable">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -111,6 +111,104 @@
                 tools:listitem="@layout/row_leitner_question" />
         </com.qtalk.recyclerviewfastscroller.RecyclerViewFastScroller>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/review_favorites_background"
+            android:elevation="10dp"
+            android:minHeight="96dp"
+            android:shadowColor="@color/primary_color"
+            android:shadowRadius="10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="UnusedAttribute">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPlayPause"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="@dimen/paddingAllLayout"
+                android:layout_marginLeft="@dimen/paddingAllLayout"
+                app:icon="@drawable/ic_play"
+                app:iconGravity="textStart"
+                app:iconSize="36dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoSizeMinTextSize="8sp"
+                android:fontFamily="@font/sf_pro_rounded_bold"
+                android:textColor="@color/primary_color"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/btnPlayPause"
+                app:layout_constraintStart_toStartOf="@id/btnPlayPause"
+                app:layout_constraintTop_toBottomOf="@+id/btnPlayPause"
+                tools:ignore="SmallSp"
+                tools:text="6200/6800" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRepeatCount"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="@dimen/paddingAllLayout"
+                android:layout_marginLeft="@dimen/paddingAllLayout"
+                app:icon="@drawable/ic_replay"
+                app:iconGravity="textStart"
+                app:iconSize="36dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnPlayPause"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtRepeatCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_rounded_bold"
+                android:textColor="@color/primary_color"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="@id/btnRepeatCount"
+                app:layout_constraintStart_toStartOf="@id/btnRepeatCount"
+                app:layout_constraintTop_toBottomOf="@+id/btnRepeatCount"
+                tools:ignore="HardcodedText,SmallSp"
+                android:text="1X" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtReviewQuestion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/paddingAllLayout"
+                android:layout_marginLeft="@dimen/paddingAllLayout"
+                android:layout_marginTop="@dimen/paddingLayout"
+                android:fontFamily="@font/iransans_bold"
+                android:textColor="@color/black"
+                android:animateLayoutChanges="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnRepeatCount"
+                app:layout_constraintTop_toTopOf="@+id/btnRepeatCount"
+                tools:text="Test" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtReviewAnswer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/paddingAllLayout"
+                android:layout_marginLeft="@dimen/paddingAllLayout"
+                android:layout_marginTop="@dimen/paddingLayout"
+                android:fontFamily="@font/iransans_bold"
+                android:gravity="left"
+                android:textColor="@color/gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnRepeatCount"
+                app:layout_constraintTop_toBottomOf="@+id/txtReviewQuestion"
+                tools:ignore="RtlHardcoded"
+                tools:text="Test" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

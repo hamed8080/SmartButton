@@ -4,7 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
+import android.view.KeyEvent
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
@@ -24,7 +27,6 @@ import ir.amozkade.advancedAsisstiveTouche.mvvm.dictionary.levels.questionAnswer
 import ir.mobitrain.applicationcore.DividerItemDecoration
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
-import java.lang.Exception
 
 @AndroidEntryPoint
 class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.OnQuestionListener {
@@ -36,10 +38,22 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
 
     private val addQuestionConsent =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
-            if (activityResult.data?.getBooleanExtra("isNewAdded",false) == false){
-                viewModel.setState(LeitnerQuestionListStateEvent.Edited(activityResult?.data?.getParcelableExtra("questionAnswer")))
-            }else{
-                viewModel.setState(LeitnerQuestionListStateEvent.Add(activityResult?.data?.getParcelableExtra("questionAnswer")))
+            if (activityResult.data?.getBooleanExtra("isNewAdded", false) == false) {
+                viewModel.setState(
+                    LeitnerQuestionListStateEvent.Edited(
+                        activityResult?.data?.getParcelableExtra(
+                            "questionAnswer"
+                        )
+                    )
+                )
+            } else {
+                viewModel.setState(
+                    LeitnerQuestionListStateEvent.Add(
+                        activityResult?.data?.getParcelableExtra(
+                            "questionAnswer"
+                        )
+                    )
+                )
             }
         }
 
@@ -49,21 +63,29 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
         leitnerId = intent?.getIntExtra("leitnerId", 0) ?: return
         setupUI()
         setupObservers()
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
             leitnerId?.let {
                 viewModel.setState(LeitnerQuestionListStateEvent.GetAllLeitnerQuestions(it))
             }
-        }else{
-            val adapterState:Parcelable? = savedInstanceState.getParcelable(argsScrollLState)
+        } else {
+            val adapterState: Parcelable? = savedInstanceState.getParcelable(argsScrollLState)
             mBinding.rcvQuestions.layoutManager?.onRestoreInstanceState(adapterState)
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        if (mBinding.rcvQuestions.adapter != null){
-            outState.putParcelable(argsScrollLState, mBinding.rcvQuestions.layoutManager?.onSaveInstanceState())
+        if (mBinding.rcvQuestions.adapter != null) {
+            outState.putParcelable(
+                argsScrollLState,
+                mBinding.rcvQuestions.layoutManager?.onSaveInstanceState()
+            )
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.pauseReview()
     }
 
     private fun setupUI() {
@@ -74,8 +96,17 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
         mBinding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
             viewModel.setState(LeitnerQuestionListStateEvent.Sort(checkedId))
         }
+        mBinding.btnPlayPause.setOnClickListener {
+            reviewPlayOrPause()
+        }
 
-        mBinding.actionBar.mBinding.btnAdd.setTextColor( ContextCompat.getColor(this,R.color.primary_color))
+        mBinding.btnRepeatCount.setOnClickListener {
+            viewModel.increaseRepeatCount()
+        }
+
+        mBinding.actionBar.mBinding.btnAdd.setTextColor(
+            ContextCompat.getColor(this, R.color.primary_color)
+        )
         mBinding.actionBar.btnAddSetOnClickListener {
             val intent = Intent(this, AddOrEditQuestionActivity::class.java)
             intent.putExtra("leitnerId", leitnerId)
@@ -83,6 +114,12 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
         }
     }
 
+    private fun reviewPlayOrPause() {
+        viewModel.setState(LeitnerQuestionListStateEvent.PlayOrPause)
+        mBinding.btnPlayPause.setIconResource(if (viewModel.isPlaying) R.drawable.ic_play else R.drawable.ic_pause)
+    }
+
+    @SuppressLint("SetTextI18n")
     private fun setupObservers() {
         viewModel.exceptionObserver.observe(this) {
             manageDataState(DataState.Error(it as Exception))
@@ -106,6 +143,34 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
 
                 if (dataState.data is LeitnerQuestionListResponse.Added) {
                     (mBinding.rcvQuestions.adapter as? LeitnerQuestionListAdapter)?.add(dataState.data.questionAnswer)
+                }
+
+                if (dataState.data is LeitnerQuestionListResponse.RepeatCount) {
+                    mBinding.txtRepeatCount.text = "${dataState.data.repeatCount}X"
+                }
+
+                if (dataState.data is LeitnerQuestionListResponse.ReviewingQuestion) {
+                    mBinding.txtCount.text = dataState.data.reviewCount
+                    mBinding.txtReviewQuestion.startAnimation(
+                        AnimationUtils.loadAnimation(
+                            this,
+                            R.anim.scale_from_down_to_up
+                        )
+                    )
+                    mBinding.txtReviewAnswer.startAnimation(
+                        AnimationUtils.loadAnimation(
+                            this,
+                            R.anim.scale_from_down_to_up
+                        )
+                    )
+                    mBinding.txtCount.startAnimation(
+                        AnimationUtils.loadAnimation(
+                            this,
+                            R.anim.scale_from_down_to_up
+                        )
+                    )
+                    mBinding.txtReviewQuestion.text = dataState.data.questionAnswer.question
+                    mBinding.txtReviewAnswer.text = dataState.data.questionAnswer.answer
                 }
             }
             manageDataState(dataState)
@@ -180,5 +245,12 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
                 leitnerSelectedIndex = which
             }
             .show()
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_HEADSETHOOK) {
+            reviewPlayOrPause()
+        }
+        return super.onKeyDown(keyCode, event)
     }
 }

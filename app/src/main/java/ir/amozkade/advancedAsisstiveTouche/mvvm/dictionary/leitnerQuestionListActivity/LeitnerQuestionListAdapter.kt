@@ -92,6 +92,7 @@ class LeitnerQuestionListAdapter(
 
     private fun speakText(text: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            tts.setSpeechRate(0.7f)
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
         } else {
             @Suppress("DEPRECATION")

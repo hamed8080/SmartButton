@@ -8,4 +8,7 @@ sealed class LeitnerQuestionListResponse{
     data class QuestionAnswerUpdated(val questionAnswer:QuestionAnswer):LeitnerQuestionListResponse()
     data class Removed(val questionAnswer:QuestionAnswer):LeitnerQuestionListResponse()
     data class Added(val questionAnswer:QuestionAnswer):LeitnerQuestionListResponse()
+    data class RepeatCount(val repeatCount:Int):LeitnerQuestionListResponse()
+    data class ReviewingQuestion(val questionAnswer:QuestionAnswer, val reviewCount:String):LeitnerQuestionListResponse()
+
 }
