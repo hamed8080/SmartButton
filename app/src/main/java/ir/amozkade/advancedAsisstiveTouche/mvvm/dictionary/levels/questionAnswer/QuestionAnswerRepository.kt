@@ -24,6 +24,8 @@ class QuestionAnswerRepository @Inject constructor(private val questionAnswerDao
         emit(DataState.Loading)
         val entity = questionAnswerDao.getQuestionAnswer(editedQuestionAnswer.original.question, editedQuestionAnswer.original.leitnerId)
         questionAnswerDao.delete(entity)
+        editedQuestionAnswer.edited.completed = entity.completed
+        editedQuestionAnswer.edited.favorite = entity.favorite
         questionAnswerDao.insert(editedQuestionAnswer.edited)
         emit(DataState.Success(AddOrEditQuestionResponse.SuccessEdited(editedQuestionAnswer.edited)))
     }
@@ -57,6 +59,7 @@ class QuestionAnswerRepository @Inject constructor(private val questionAnswerDao
         questionAnswerDao.delete(entity)
         questionAnswer.leitnerId = leitnerId
         questionAnswer.levelId = firstLevelId
+        questionAnswer.completed = false
         questionAnswerDao.insert(questionAnswer)
     }
 
