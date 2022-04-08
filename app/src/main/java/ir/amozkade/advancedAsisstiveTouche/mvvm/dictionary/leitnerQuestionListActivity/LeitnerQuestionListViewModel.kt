@@ -31,8 +31,8 @@ class LeitnerQuestionListViewModel @Inject constructor(
 ) : ViewModel() {
 
 
-    private var questionAnswers = arrayListOf<QuestionAnswer>()
-    private var levels = arrayListOf<Level>()
+    var questionAnswers = arrayListOf<QuestionAnswer>()
+    var levels = arrayListOf<Level>()
 
     private val _response: MutableLiveData<DataState<LeitnerQuestionListResponse>> = MutableLiveData()
     val response: LiveData<DataState<LeitnerQuestionListResponse>> = _response
@@ -120,7 +120,7 @@ class LeitnerQuestionListViewModel @Inject constructor(
                     }
 
                     is LeitnerQuestionListStateEvent.PlayOrPause ->{
-                        playOrPauseReview(!isPlaying)
+                        playOrPauseReview(event.play)
                     }
 
                     is LeitnerQuestionListStateEvent.Sort -> {

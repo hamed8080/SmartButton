@@ -34,6 +34,7 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
     private lateinit var mBinding: ActivityLeitnerQuestionListBinding
     var leitnerId: Int? = null
     private val argsScrollLState = "recyclerState"
+    private var mBundleState: Parcelable? = null
 
     private val addQuestionConsent =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
@@ -60,26 +61,43 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_leitner_question_list)
         leitnerId = intent?.getIntExtra("leitnerId", 0) ?: return
+        mBundleState = savedInstanceState?.getParcelable(argsScrollLState)
         setupUI()
         setupObservers()
         if (savedInstanceState == null) {
             leitnerId?.let {
                 viewModel.setState(LeitnerQuestionListStateEvent.GetAllLeitnerQuestions(it))
             }
-        } else {
-            val adapterState: Parcelable? = savedInstanceState.getParcelable(argsScrollLState)
-            mBinding.rcvQuestions.layoutManager?.onRestoreInstanceState(adapterState)
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        if (mBinding.rcvQuestions.adapter != null) {
-            outState.putParcelable(
-                argsScrollLState,
-                mBinding.rcvQuestions.layoutManager?.onSaveInstanceState()
-            )
+        mBundleState = mBinding.rcvQuestions.layoutManager?.onSaveInstanceState()
+        outState.putParcelable(argsScrollLState, mBundleState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        mBundleState = savedInstanceState.getParcelable(argsScrollLState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (mBinding.rcvQuestions.adapter == null) {
+            setupRecyclerView(viewModel.questionAnswers, viewModel.levels)
         }
+        if (viewModel.isPlaying) {
+            reviewPlayOrPause(true)
+        }
+
+        if (mBundleState != null){
+            mBinding.rcvQuestions.layoutManager?.onRestoreInstanceState(mBundleState)
+        }
+        /**clear for chip group it called after rotate device
+         * so we need to detect is this property is null or not
+         * if its null mean view is creating for first time*/
+        mBundleState = null
     }
 
     override fun onDestroy() {
@@ -93,10 +111,12 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
         mBinding.rcvQuestions.addItemDecoration(DividerItemDecoration(this))
         mBinding.vm = viewModel
         mBinding.chipGroup.setOnCheckedChangeListener { _, checkedId ->
-            viewModel.setState(LeitnerQuestionListStateEvent.Sort(checkedId))
+            if (mBundleState == null){
+                viewModel.setState(LeitnerQuestionListStateEvent.Sort(checkedId))
+            }
         }
         mBinding.btnPlayPause.setOnClickListener {
-            reviewPlayOrPause()
+            reviewPlayOrPause(!viewModel.isPlaying)
         }
 
         mBinding.btnRepeatCount.setOnClickListener {
@@ -113,8 +133,8 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
         }
     }
 
-    private fun reviewPlayOrPause() {
-        viewModel.setState(LeitnerQuestionListStateEvent.PlayOrPause)
+    private fun reviewPlayOrPause(play: Boolean) {
+        viewModel.setState(LeitnerQuestionListStateEvent.PlayOrPause(play))
         mBinding.btnPlayPause.setIconResource(if (viewModel.isPlaying) R.drawable.ic_play else R.drawable.ic_pause)
     }
 
@@ -248,7 +268,7 @@ class LeitnerQuestionListActivity : BaseActivity(), LeitnerQuestionListAdapter.O
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_HEADSETHOOK) {
-            reviewPlayOrPause()
+            reviewPlayOrPause(!viewModel.isPlaying)
         }
         return super.onKeyDown(keyCode, event)
     }
